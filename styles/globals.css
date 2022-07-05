@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	li {
+		@apply px-2;
+		@apply cursor-pointer;
+	}
+}
+
 html,
 body {
 	padding: 0;
