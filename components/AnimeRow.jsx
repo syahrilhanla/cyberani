@@ -19,6 +19,16 @@ const AnimeRow = ({ rowTitle }) => {
 						prevEl: ".swiper-button-prev",
 					}}
 					spaceBetween={10}
+					breakpoints={{
+						240: {
+							slidesPerView: 2,
+							spaceBetween: 10,
+						},
+						640: {
+							slidesPerView: 6,
+							spaceBetween: 10,
+						},
+					}}
 				>
 					<SwiperSlide>
 						<LittleAnimeCard />
