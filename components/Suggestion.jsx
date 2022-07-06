@@ -42,7 +42,7 @@ const Suggestion = () => {
 				speed={500}
 			>
 				{movieData.map((data) => (
-					<SwiperSlide>
+					<SwiperSlide key={data.title}>
 						<Jumbotron data={data} />
 					</SwiperSlide>
 				))}
