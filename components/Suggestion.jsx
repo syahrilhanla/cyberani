@@ -1,9 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+import { Navigation, Autoplay, Pagination } from "swiper";
 import Jumbotron from "./Jumbotron";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 const Suggestion = () => {
 	const movieData = [
@@ -29,8 +31,10 @@ const Suggestion = () => {
 		<div className="w-[100%]">
 			<Swiper
 				// install Swiper modules
-				modules={[Navigation]}
+				modules={[Navigation, Pagination, Autoplay]}
 				navigation
+				autoplay={{ delay: 2500, disableOnInteraction: false }}
+				pagination={{ el: ".swiper-pagination", clickable: true }}
 				spaceBetween={50}
 				speed={500}
 			>
@@ -39,6 +43,7 @@ const Suggestion = () => {
 						<Jumbotron data={data} />
 					</SwiperSlide>
 				))}
+				<div class="swiper-pagination"></div>
 			</Swiper>
 		</div>
 	);
