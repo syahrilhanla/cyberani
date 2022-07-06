@@ -32,10 +32,13 @@ const Suggestion = () => {
 			<Swiper
 				// install Swiper modules
 				modules={[Navigation, Pagination, Autoplay]}
-				navigation
-				autoplay={{ delay: 2500, disableOnInteraction: false }}
+				navigation={{
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+				}}
+				autoplay={{ delay: 3500, disableOnInteraction: false }}
 				pagination={{ el: ".swiper-pagination", clickable: true }}
-				spaceBetween={50}
+				spaceBetween={10}
 				speed={500}
 			>
 				{movieData.map((data) => (
@@ -44,6 +47,14 @@ const Suggestion = () => {
 					</SwiperSlide>
 				))}
 				<div class="swiper-pagination"></div>
+				<div
+					class="swiper-button-next opacity-25 hover:opacity-70 duration-200"
+					style={{ color: "#c5c5c5" }}
+				></div>
+				<div
+					class="swiper-button-prev opacity-25 hover:opacity-70 duration-200"
+					style={{ color: "#c5c5c5" }}
+				></div>
 			</Swiper>
 		</div>
 	);
