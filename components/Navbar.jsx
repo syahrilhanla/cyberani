@@ -16,7 +16,7 @@ const Navbar = () => {
 
 	return (
 		<div className="fixed h-[78px] w-full flex justify-between items-center px-4 bg-[#0a192f] text-gray-300 z-50">
-			<div className="flex justify-between items-center md:w-[45%]">
+			<div className=" hidden sm:flex justify-between items-center md:w-[45%]">
 				<div className="ml-4 w-16 h-16 flex items-center text-2xl font-light logo">
 					<Link href={"/"}>CyberAni</Link>
 				</div>

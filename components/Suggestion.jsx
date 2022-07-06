@@ -28,7 +28,7 @@ const Suggestion = () => {
 	];
 
 	return (
-		<div className="w-[100%]">
+		<div className="w-full">
 			<Swiper
 				// install Swiper modules
 				modules={[Navigation, Pagination, Autoplay]}
@@ -38,7 +38,10 @@ const Suggestion = () => {
 				}}
 				autoplay={{ delay: 3500 }}
 				pagination={{ el: ".swiper-pagination", clickable: true }}
-				spaceBetween={10}
+				spaceBetween={100}
+				centeredSlides={true}
+				centeredSlidesBounds={true}
+				slidesPerView={1}
 				speed={500}
 			>
 				{movieData.map((data) => (
