@@ -18,12 +18,12 @@ const Suggestion = () => {
 			imgURL: "obiwan-kenobi.webp",
 		},
 		{
-			title: "Star Wars: Obi-Wan Kenobi",
-			genre: "Action",
-			yearRelease: "2021",
+			title: "Jujutsu Kaisen",
+			genre: "Adventure",
+			yearRelease: "2020",
 			description:
-				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem itaque molestias, iure labore pariatur ipsam, repellendus ducimus, possimus deserunt aliquid quod. Repudiandae minus, dolorem hic quidem voluptates doloribus recusandae sed.",
-			imgURL: "obiwan-kenobi.webp",
+				'Yuji Itadori is just a normal student, but when he had to save a schoolmate, he ate "Sukuna\'s finger" and incarnated a curse in his own soul.',
+			imgURL: "jujutsu-kaisen.jpg",
 		},
 	];
 
@@ -36,7 +36,7 @@ const Suggestion = () => {
 					nextEl: ".swiper-button-next",
 					prevEl: ".swiper-button-prev",
 				}}
-				autoplay={{ delay: 3500, disableOnInteraction: false }}
+				autoplay={{ delay: 3500 }}
 				pagination={{ el: ".swiper-pagination", clickable: true }}
 				spaceBetween={10}
 				speed={500}
