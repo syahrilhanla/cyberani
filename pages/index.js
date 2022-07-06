@@ -6,9 +6,9 @@ export default function HomePage() {
 	return (
 		<div>
 			<Head>
-				<title>CyberAni</title>
+				<title>CyberAni - Watch Free Anime</title>
 				<meta name="description" content="Free streaming anime platform" />
-				<link rel="icon" href="/favicon.ico" />
+				<link rel="icon" href="/CyberAni-logo.png" />
 			</Head>
 			<Navbar />
 			<Home />
