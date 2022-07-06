@@ -1,4 +1,5 @@
 import Suggestion from "./Suggestion";
+import AnimeRow from "./AnimeRow";
 
 const Home = () => {
 	return (
@@ -7,6 +8,8 @@ const Home = () => {
 			name="home"
 		>
 			<Suggestion />
+			<AnimeRow rowTitle={"Top Anime"} />
+			<AnimeRow rowTitle={"Latest Release"} />
 		</div>
 	);
 };
