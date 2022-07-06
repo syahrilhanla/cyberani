@@ -21,21 +21,21 @@ const Jumbotron = ({ data }) => {
 					</span>
 					<p>{data.description}</p>
 				</div>
-				<div className="px-7 relative w-[400px] h-[400px] md:w-[700px] md:h-[400px] ">
+				<div className="px-7 relative w-[400px] h-[300px] md:w-[768px] md:h-[450px] ">
 					<div
 						className="absolute top-0 left-0 z-10 w-full h-full 
 						shadow-black shadow-2xl box-shadow md:opacity-100 opacity-0"
 						// style={{ boxShadow: "130px -1px 60px 0px #030B17 inset" }}
 					></div>
-					<span className="z-0">
+					<div className="z-0">
 						<Image
 							src={`/${data.imgURL}`}
-							className={"rounded-lg"}
+							className={"rounded-lg mb-5"}
 							alt="Current Image"
 							layout={"fill"}
 							objectFit="cover"
 						/>
-					</span>
+					</div>
 				</div>
 			</div>
 			{/* <span className="w-[50px] flex items-center justify-end duration-300 opacity-30 group hover:opacity-100">
