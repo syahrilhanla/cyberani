@@ -46,13 +46,13 @@ const Suggestion = () => {
 						<Jumbotron data={data} />
 					</SwiperSlide>
 				))}
-				<div class="swiper-pagination"></div>
+				<div className="swiper-pagination"></div>
 				<div
-					class="swiper-button-next opacity-25 hover:opacity-70 duration-200"
+					className="swiper-button-next opacity-25 hover:opacity-70 duration-200"
 					style={{ color: "#c5c5c5" }}
 				></div>
 				<div
-					class="swiper-button-prev opacity-25 hover:opacity-70 duration-200"
+					className="swiper-button-prev opacity-25 hover:opacity-70 duration-200"
 					style={{ color: "#c5c5c5" }}
 				></div>
 			</Swiper>
