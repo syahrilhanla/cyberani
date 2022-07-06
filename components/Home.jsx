@@ -1,4 +1,4 @@
-import Jumbotron from "./Jumbotron";
+import Suggestion from "./Suggestion";
 
 const Home = () => {
 	return (
@@ -6,7 +6,7 @@ const Home = () => {
 			className="absolute top-[78px] bg-[#0c2852] w-full min-h-screen flex flex-col items-center"
 			name="home"
 		>
-			<Jumbotron />
+			<Suggestion />
 		</div>
 	);
 };
