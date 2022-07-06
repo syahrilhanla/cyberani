@@ -17,8 +17,14 @@ body {
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+/* Name App in Navbar */
 .logo {
 	font-family: "Orbitron";
+}
+
+/* Jumbotron component */
+.box-shadow {
+	box-shadow: 130px -1px 60px 0px #030b17 inset;
 }
 
 a {

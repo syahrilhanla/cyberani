@@ -9,8 +9,8 @@ const Jumbotron = ({ data }) => {
 					<FaArrowLeft className="w-6 h-6" />
 				</div>
 			</span> */}
-			<div className="flex justify-center items-center bg-[#030B17] rounded-lg">
-				<div className="px-7 max-w-md">
+			<div className="flex md:flex-row flex-col justify-center items-center bg-[#030B17] rounded-lg">
+				<div className="px-7 max-w-md mb-5 md:mb-0">
 					<h2 className="text-3xl font-semibold mb-3 text-gray-200">
 						{data.title}
 					</h2>
@@ -21,10 +21,11 @@ const Jumbotron = ({ data }) => {
 					</span>
 					<p>{data.description}</p>
 				</div>
-				<div className="px-7 relative w-[700px] h-[400px] ">
+				<div className="px-7 relative w-[400px] h-[400px] md:w-[700px] md:h-[400px] ">
 					<div
-						className="absolute top-0 left-0 z-10 w-full h-full"
-						style={{ boxShadow: "130px -1px 60px 0px #030B17 inset" }}
+						className="absolute top-0 left-0 z-10 w-full h-full 
+						shadow-black shadow-2xl box-shadow md:opacity-100 opacity-0"
+						// style={{ boxShadow: "130px -1px 60px 0px #030B17 inset" }}
 					></div>
 					<span className="z-0">
 						<Image
