@@ -6,19 +6,18 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import AnimeCardShowroom from "../common/AnimeCardShowroom";
+import fetchAnime from "../utils/fetchAnime";
 
 const AnimeRow = ({ rowTitle, category }) => {
 	const [animeData, setAnimeData] = useState([]);
 
-	const fetchAnime = async (category) => {
-		const data = await fetch(`https://gogoanime.herokuapp.com/${category}`);
-		const results = await data.json();
-		setAnimeData(results);
-	};
-
 	// fetch data when initializing component
 	useEffect(() => {
-		fetchAnime(category);
+		const fetchData = async () => {
+			const results = await fetchAnime(category);
+			setAnimeData(results);
+		};
+		fetchData();
 	}, []);
 
 	return (

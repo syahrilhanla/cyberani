@@ -1,4 +1,4 @@
-import GenresDisplay from "../components/genres/GenresDisplay";
+import GenresDisplay from "../components/categories/GenresDisplay";
 import Layout from "../components/common/Layout";
 
 const genres = () => {

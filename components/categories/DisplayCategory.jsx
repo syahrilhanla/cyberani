@@ -1,11 +1,12 @@
+import { useState } from "react";
 import genresData from "./genresData";
 
-const GenresDisplay = () => {
+const GenresDisplay = ({ categoryName }) => {
 	return (
 		<div className="w-full p-3 my-6 flex flex-col justify-center items-center">
 			<div className="md:w-[70%] ml-3 mb-4">
 				<h1 className="text-left text-slate-200 text-3xl font-semibold">
-					Genres
+					{categoryName}
 				</h1>
 			</div>
 			<div
