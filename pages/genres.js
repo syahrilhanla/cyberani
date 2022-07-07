@@ -1,11 +1,15 @@
 import GenresDisplay from "../components/categories/GenresDisplay";
-import Layout from "../components/common/Layout";
+import Meta from "../components/common/Meta";
 
 const genres = () => {
 	return (
-		<Layout title={"CyberAni - Genre"}>
+		<>
+			<Meta
+				title={"Genres - CyberAni"}
+				description={"Find your favorite anime genre here!"}
+			/>
 			<GenresDisplay />
-		</Layout>
+		</>
 	);
 };
 

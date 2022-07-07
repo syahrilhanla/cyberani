@@ -1,12 +1,14 @@
 import Home from "../components/homepage/Home";
-import Layout from "../components/common/Layout";
+import Meta from "../components/common/Meta";
 
 export default function HomePage() {
 	return (
-		<div>
-			<Layout title={"CyberAni - Watch Free Anime"}>
-				<Home />
-			</Layout>
-		</div>
+		<>
+			<Meta
+				title={"CyberAni - Watch Free Anime Online"}
+				description={"CyberAni - Watch Free Anime Online"}
+			/>
+			<Home />;
+		</>
 	);
 }

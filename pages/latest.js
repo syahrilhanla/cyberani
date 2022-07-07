@@ -1,15 +1,19 @@
 import DisplayCategory from "../components/categories/DisplayCategory";
-import Layout from "../components/common/Layout";
+import Meta from "../components/common/Meta";
 
 const latest = () => {
 	return (
-		<Layout title={"CyberAni - Latest Release"}>
+		<>
+			<Meta
+				title={"Latest Release - CyberAni"}
+				description={"Watch the latest released anime here for free!"}
+			/>
 			<DisplayCategory
 				categoryName={"Latest Release"}
 				animeType={"episode"}
 				category={"recent-release"}
 			/>
-		</Layout>
+		</>
 	);
 };
 
