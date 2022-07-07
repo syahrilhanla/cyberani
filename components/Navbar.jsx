@@ -23,11 +23,12 @@ const Navbar = () => {
 
 				{/* Menu */}
 				<ul className="hidden md:flex justify-between min-w-max gap-6 ml-20 font-medium">
-					<li>Anime List</li>
+					<li>Popular</li>
 					<li>Latest</li>
 					<li>Trending</li>
-					<li>Top</li>
-					<li>Genre</li>
+					<li>
+						<Link href={"/genres"}>Genre</Link>
+					</li>
 					<li>Schedule</li>
 				</ul>
 			</div>
@@ -64,7 +65,7 @@ const Navbar = () => {
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					Anime List
+					Popular
 				</li>
 				<li
 					className="pb-3 text-3xl"
@@ -82,13 +83,7 @@ const Navbar = () => {
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					Top
-				</li>
-				<li
-					className="pb-3 text-3xl"
-					onClick={() => setNavbar((prevValue) => !prevValue)}
-				>
-					Genre
+					<Link href={"/genres"}>Genre</Link>
 				</li>
 				<li
 					className="pb-3 text-3xl"
