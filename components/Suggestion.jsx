@@ -1,5 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper";
+import fakeData from "./data/fakeData";
+
 import Jumbotron from "./Jumbotron";
 
 import "swiper/css";
@@ -44,7 +46,7 @@ const Suggestion = () => {
 				slidesPerView={1}
 				speed={500}
 			>
-				{movieData.map((data) => (
+				{fakeData.map((data) => (
 					<SwiperSlide key={data.title}>
 						<Jumbotron data={data} />
 					</SwiperSlide>
