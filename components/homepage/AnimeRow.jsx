@@ -22,7 +22,7 @@ const AnimeRow = ({ rowTitle, category }) => {
 
 	return (
 		<div className="flex flex-col w-[90%] mt-2 text-left font-medium text-slate-200 pb-5">
-			<h1 className="text-2xl mb-2">{rowTitle}</h1>
+			<h1 className="text-2xl mb-2 ml-2">{rowTitle}</h1>
 			<div className="w-full">
 				<Swiper
 					// install Swiper modules

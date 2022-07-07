@@ -1,11 +1,10 @@
 import Head from "next/head";
 import Navbar from "./Navbar";
 
-const Layout = ({ children, title }) => {
+const Layout = ({ children }) => {
 	return (
 		<div className=" w-full flex flex-col items-center">
 			<Head>
-				<title>{title}</title>
 				<meta name="description" content="Free streaming anime platform" />
 				<link rel="icon" href="/CyberAni-logo.png" />
 			</Head>
