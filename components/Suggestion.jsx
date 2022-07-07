@@ -10,25 +10,6 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
 const Suggestion = () => {
-	const movieData = [
-		{
-			title: "Star Wars: Obi-Wan Kenobi",
-			genre: "Action",
-			yearRelease: "2021",
-			description:
-				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem itaque molestias, iure labore pariatur ipsam, repellendus ducimus, possimus deserunt aliquid quod. Repudiandae minus, dolorem hic quidem voluptates doloribus recusandae sed.",
-			imgURL: "obiwan-kenobi.webp",
-		},
-		{
-			title: "Jujutsu Kaisen",
-			genre: "Adventure",
-			yearRelease: "2020",
-			description:
-				'Yuji Itadori is just a normal student, but when he had to save a schoolmate, he ate "Sukuna\'s finger" and incarnated a curse in his own soul.',
-			imgURL: "jujutsu-kaisen.jpg",
-		},
-	];
-
 	return (
 		<div className="w-full">
 			<Swiper
