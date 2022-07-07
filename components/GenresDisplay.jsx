@@ -4,10 +4,14 @@ const GenresDisplay = () => {
 	return (
 		<div
 			className="md:w-[70%] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5
-     mt-2 text-left font-medium text-slate-200 pb-2"
+     mt-2 text-left font-medium text-slate-100 pb-2"
 		>
 			{capitalizeWords.map((genre) => (
-				<div className="relative max-h-[18rem] max-w-[10rem] mb-2 mx-2 md:mb-4">
+				<div
+					className="relative max-h-[18rem] max-w-[10rem] mb-2 mx-2 md:mb-4
+          hover:scale-110 transition-all gap-2"
+					key={genre}
+				>
 					<div
 						className="absolute top-0 left-0 z-10 h-[100%] w-full rounded-lg duration-300 flex items-end"
 						style={{
