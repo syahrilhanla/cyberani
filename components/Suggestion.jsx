@@ -1,5 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper";
+import fakeData from "./data/fakeData";
+
 import Jumbotron from "./Jumbotron";
 
 import "swiper/css";
@@ -8,27 +10,8 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
 const Suggestion = () => {
-	const movieData = [
-		{
-			title: "Star Wars: Obi-Wan Kenobi",
-			genre: "Action",
-			yearRelease: "2021",
-			description:
-				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem itaque molestias, iure labore pariatur ipsam, repellendus ducimus, possimus deserunt aliquid quod. Repudiandae minus, dolorem hic quidem voluptates doloribus recusandae sed.",
-			imgURL: "obiwan-kenobi.webp",
-		},
-		{
-			title: "Star Wars: Obi-Wan Kenobi",
-			genre: "Action",
-			yearRelease: "2021",
-			description:
-				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem itaque molestias, iure labore pariatur ipsam, repellendus ducimus, possimus deserunt aliquid quod. Repudiandae minus, dolorem hic quidem voluptates doloribus recusandae sed.",
-			imgURL: "obiwan-kenobi.webp",
-		},
-	];
-
 	return (
-		<div className="w-[100%]">
+		<div className="w-full">
 			<Swiper
 				// install Swiper modules
 				modules={[Navigation, Pagination, Autoplay]}
@@ -36,12 +19,15 @@ const Suggestion = () => {
 					nextEl: ".swiper-button-next",
 					prevEl: ".swiper-button-prev",
 				}}
-				autoplay={{ delay: 3500, disableOnInteraction: false }}
+				autoplay={{ delay: 3500 }}
 				pagination={{ el: ".swiper-pagination", clickable: true }}
-				spaceBetween={10}
+				spaceBetween={100}
+				centeredSlides={true}
+				centeredSlidesBounds={true}
+				slidesPerView={1}
 				speed={500}
 			>
-				{movieData.map((data) => (
+				{fakeData.map((data) => (
 					<SwiperSlide key={data.title}>
 						<Jumbotron data={data} />
 					</SwiperSlide>

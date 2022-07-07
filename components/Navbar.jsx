@@ -16,14 +16,15 @@ const Navbar = () => {
 
 	return (
 		<div className="fixed h-[78px] w-full flex justify-between items-center px-4 bg-[#0a192f] text-gray-300 z-50">
-			<div className="flex justify-between items-center md:w-[45%]">
+			<div className=" hidden sm:flex justify-between items-center md:w-[45%]">
 				<div className="ml-4 w-16 h-16 flex items-center text-2xl font-light logo">
 					<Link href={"/"}>CyberAni</Link>
 				</div>
 
 				{/* Menu */}
-				<ul className="hidden md:flex justify-between min-w-max gap-6 ml-20">
+				<ul className="hidden md:flex justify-between min-w-max gap-6 ml-20 font-medium">
 					<li>Anime List</li>
+					<li>Latest</li>
 					<li>Trending</li>
 					<li>Top</li>
 					<li>Genre</li>
@@ -38,7 +39,7 @@ const Navbar = () => {
 			>
 				<input
 					type="text"
-					className=" bg-transparent placeholder-shown:font-light focus:w-[250px] focus:mr-[50px] 
+					className=" bg-transparent placeholder-shown:font-light focus:w-[150px] focus:mr-[50px] 
            placeholder-gray-400 duration-500 focus:outline-none"
 					placeholder="Search"
 				/>
@@ -63,31 +64,37 @@ const Navbar = () => {
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					Home
+					Anime List
 				</li>
 				<li
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					About
+					Latest
 				</li>
 				<li
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					Skills
+					Trending
 				</li>
 				<li
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					Works
+					Top
 				</li>
 				<li
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					Contact
+					Genre
+				</li>
+				<li
+					className="pb-3 text-3xl"
+					onClick={() => setNavbar((prevValue) => !prevValue)}
+				>
+					Schedule
 				</li>
 			</ul>
 		</div>
