@@ -1,4 +1,4 @@
-import capitalizeWords from "../components/data/genres";
+import genresData from "./data/genresData";
 
 const GenresDisplay = () => {
 	return (
@@ -6,11 +6,11 @@ const GenresDisplay = () => {
 			className="md:w-[70%] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5
      mt-2 text-left font-medium text-slate-100 pb-2"
 		>
-			{capitalizeWords.map((genre) => (
+			{genresData.map((genre) => (
 				<div
 					className="relative max-h-[18rem] max-w-[10rem] mb-2 mx-2 md:mb-4
-          hover:scale-110 transition-all gap-2"
-					key={genre}
+          hover:scale-110 transition-all gap-2 duration-500"
+					key={genre.genre}
 				>
 					<div
 						className="absolute top-0 left-0 z-10 h-[100%] w-full rounded-lg duration-300 flex items-end"
@@ -20,14 +20,16 @@ const GenresDisplay = () => {
 					>
 						<div className="flex justify-center items-center h-full w-full">
 							<p className="opacity-100 z-50 text-lg text-center font-semibold">
-								{genre}
+								{genre.genre}
 							</p>
 						</div>
 					</div>
 					<span>
 						<img
 							src={
-								"https://gogocdn.net/cover/shingeki-no-kyojin-the-final-season-kanketsu-hen.png"
+								genre.imgURL
+									? genre.imgURL
+									: "https://gogocdn.net/cover/shingeki-no-kyojin-the-final-season-kanketsu-hen.png"
 							}
 							className="object-cover w-full h-full rounded-xl"
 						/>
