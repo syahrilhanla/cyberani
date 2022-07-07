@@ -10,7 +10,7 @@ import AnimeCardShowroom from "./AnimeCardShowroom";
 const AnimeRow = ({ rowTitle, category }) => {
 	const [animeData, setAnimeData] = useState([]);
 
-	const fetchAnime = async () => {
+	const fetchAnime = async (category) => {
 		const data = await fetch(`https://gogoanime.herokuapp.com/${category}`);
 		const results = await data.json();
 		setAnimeData(results);
@@ -18,7 +18,7 @@ const AnimeRow = ({ rowTitle, category }) => {
 
 	// fetch data when initializing component
 	useEffect(() => {
-		fetchAnime();
+		fetchAnime(category);
 	}, []);
 
 	return (
