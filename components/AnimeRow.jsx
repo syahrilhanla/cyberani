@@ -1,10 +1,11 @@
+import { useEffect, useState } from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import LittleAnimeCard from "./LittleAnimeCard";
-import { useEffect, useState } from "react";
+import AnimeCardShowroom from "./AnimeCardShowroom";
 
 const AnimeRow = ({ rowTitle, category }) => {
 	const [animeData, setAnimeData] = useState([]);
@@ -47,7 +48,7 @@ const AnimeRow = ({ rowTitle, category }) => {
 					{animeData &&
 						animeData.map((data) => (
 							<SwiperSlide key={data.episodeId}>
-								<LittleAnimeCard data={data} />
+								<AnimeCardShowroom data={data} />
 							</SwiperSlide>
 						))}
 
