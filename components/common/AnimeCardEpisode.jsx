@@ -1,9 +1,13 @@
 import { FaPlay } from "react-icons/fa";
 
 const AnimeCardEpisode = ({ data }) => {
+	console.log(data);
 	return (
-		<div>
-			<div className="relative group">
+		<div
+			className="mb-4 mx-2 md:mb-4
+          hover:scale-110 transition-all gap-2 duration-500"
+		>
+			<div className="relative group ">
 				<div className="absolute top-0 left-0 z-10 h-[100%] w-full rounded-lg opacity-20 group-hover:opacity-100 duration-300 box-shadow-little flex items-end">
 					<div className=" absolute px-3 bottom-3">
 						<span className="flex flex-col ">
@@ -11,7 +15,7 @@ const AnimeCardEpisode = ({ data }) => {
 								{data.animeTitle}
 							</p>
 							<span className="flex items-center left-3 gap-2">
-								<FaPlay /> <p>S1 Ep1</p>
+								<FaPlay /> <p>Episode {data.episodeNum}</p>
 							</span>
 						</span>
 					</div>

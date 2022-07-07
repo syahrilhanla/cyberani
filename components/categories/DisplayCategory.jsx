@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
+import AnimeCardEpisode from "../common/AnimeCardEpisode";
 import AnimeCardShowroom from "../common/AnimeCardShowroom";
-import GenreCard from "../common/GenreCard";
 import fetchAnime from "../utils/fetchAnime";
-import genresData from "./genresData";
 
-const DisplayCategory = ({ categoryName, category }) => {
+const DisplayCategory = ({ categoryName, category, animeType }) => {
 	const [animeData, setAnimeData] = useState([]);
 
 	// fetch data when initializing component
@@ -27,11 +26,14 @@ const DisplayCategory = ({ categoryName, category }) => {
 				className="md:w-[70%] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5
      mt-2 text-left font-medium text-slate-100 pb-2"
 			>
-				{animeData &&
-					animeData.map((data) => (
-						<AnimeCardShowroom data={data} />
-						// <GenreCard genre={genre} />
-					))}
+				{/* if data results come as series and not as an episode than render AnimeShowroom */}
+				{animeType === "title" &&
+					animeData &&
+					animeData.map((data) => <AnimeCardShowroom data={data} />)}
+				{/* if data results come as episodes than render AnimeCardEpisode */}
+				{animeType === "episode" &&
+					animeData &&
+					animeData.map((data) => <AnimeCardEpisode data={data} />)}
 			</div>
 		</div>
 	);
