@@ -14,7 +14,7 @@ const GenresDisplay = () => {
      mt-2 text-left font-medium text-slate-100 pb-2"
 			>
 				{genresData.map((genre) => (
-					<GenreCard genre={genre} />
+					<GenreCard genre={genre} key={genre} />
 				))}
 			</div>
 		</div>

@@ -29,11 +29,11 @@ const DisplayCategory = ({ categoryName, category, animeType }) => {
 				{/* if data results come as series and not as an episode than render AnimeShowroom */}
 				{animeType === "title" &&
 					animeData &&
-					animeData.map((data) => <AnimeCardShowroom data={data} />)}
+					animeData.map((data) => <AnimeCardShowroom data={data} key={data} />)}
 				{/* if data results come as episodes than render AnimeCardEpisode */}
 				{animeType === "episode" &&
 					animeData &&
-					animeData.map((data) => <AnimeCardEpisode data={data} />)}
+					animeData.map((data) => <AnimeCardEpisode data={data} key={data} />)}
 			</div>
 		</div>
 	);
