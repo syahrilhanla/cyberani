@@ -11,7 +11,7 @@ const fakeData = [
 	{
 		imgURL: "horimiya.webp",
 		yearRelease: "2020",
-		name: "Horimiya",
+		title: "Horimiya",
 		link: "/anime/horimiya",
 		genre: "Romance",
 		description:
@@ -20,7 +20,7 @@ const fakeData = [
 	{
 		imgURL: "overlord.webp",
 		yearRelease: "2013",
-		name: "Overlord",
+		title: "Overlord",
 		link: "/anime/overlord",
 		genre: "Action",
 		description:

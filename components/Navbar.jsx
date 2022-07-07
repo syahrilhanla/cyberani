@@ -39,7 +39,7 @@ const Navbar = () => {
 			>
 				<input
 					type="text"
-					className=" bg-transparent placeholder-shown:font-light focus:w-[250px] focus:mr-[50px] 
+					className=" bg-transparent placeholder-shown:font-light focus:w-[150px] focus:mr-[50px] 
            placeholder-gray-400 duration-500 focus:outline-none"
 					placeholder="Search"
 				/>
