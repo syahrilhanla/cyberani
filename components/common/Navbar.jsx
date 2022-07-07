@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
 
@@ -23,13 +22,21 @@ const Navbar = () => {
 
 				{/* Menu */}
 				<ul className="hidden md:flex justify-between min-w-max gap-6 ml-20 font-medium">
-					<li>Popular</li>
-					<li>Latest</li>
-					<li>Trending</li>
+					<li>
+						<Link href={"/popular"}>Popular</Link>
+					</li>
+					<li>
+						<Link href={"/latest"}>Latest</Link>
+					</li>
+					<li>
+						<Link href={"/trending"}>Trending</Link>
+					</li>
 					<li>
 						<Link href={"/genres"}>Genre</Link>
 					</li>
-					<li>Schedule</li>
+					<li>
+						<Link href={"/"}>Schedule</Link>
+					</li>
 				</ul>
 			</div>
 
@@ -65,19 +72,19 @@ const Navbar = () => {
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					Popular
+					<Link href={"/popular"}>Popular</Link>
 				</li>
 				<li
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					Latest
+					<Link href={"/latest"}>Latest</Link>
 				</li>
 				<li
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					Trending
+					<Link href={"/trending"}>Trending</Link>
 				</li>
 				<li
 					className="pb-3 text-3xl"
@@ -89,7 +96,7 @@ const Navbar = () => {
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					Schedule
+					<Link href={"/"}>Schedule</Link>
 				</li>
 			</ul>
 		</div>
