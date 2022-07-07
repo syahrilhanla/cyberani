@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 
 const genres = () => {
 	return (
-		<Layout>
+		<Layout title={"CyberAni - Genre"}>
 			<GenresDisplay />
 		</Layout>
 	);

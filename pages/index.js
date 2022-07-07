@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 export default function HomePage() {
 	return (
 		<div>
-			<Layout>
+			<Layout title={"CyberAni - Watch Free Anime"}>
 				<Home />
 			</Layout>
 		</div>
