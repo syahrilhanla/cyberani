@@ -130,23 +130,64 @@ const genresData = [
 		imgURL:
 			"https://gogocdn.net/images/fall/Kiseijuu%20Sei%20no%20Kakuritsu.jpg",
 	},
-	"Shoujo",
-	"Shoujo-ai",
-	"Shounen",
-	"Shounen-ai",
-	"Slice-of-Life",
-	"Space",
-	"Sports",
-	"Super-power",
+	{
+		genre: "Shoujo",
+		imgURL: "https://gogocdn.net/cover/mahou-shoujo-madokamagica-dub.png",
+	},
+	{
+		genre: "Shoujo-ai",
+		imgURL: "https://gogocdn.net/cover/citrus.png",
+	},
+	{
+		genre: "Shounen",
+		imgURL: "https://gogocdn.net/images/anime/naruto_shippuden.jpg",
+	},
+	{
+		genre: "Shounen-ai",
+		imgURL:
+			"https://gogocdn.net/cover/dakaretai-otoko-1-i-ni-odosarete-imasu.png",
+	},
+	{
+		genre: "Slice-of-Life",
+		imgURL: "https://gogocdn.net/images/anime/N/nichijou.jpg",
+	},
+	{
+		genre: "Space",
+		imgURL: "https://gogocdn.net/images/Space-Dandy.jpg",
+	},
+	{
+		genre: "Sports",
+		imgURL: "https://gogocdn.net/images/upload/68299.jpg",
+	},
+	{
+		genre: "Super-power",
+		imgURL: "https://gogocdn.net/images/upload/dragon_ball_s.jpg",
+	},
 	{
 		genre: "Supernatural",
 		imgURL: "https://gogocdn.net/cover/nurarihyon-no-mago-dub.png",
 	},
-	"Suspense",
-	"Thriller",
-	"Vampire",
-	"Yaoi",
-	"Yuri",
+	{
+		genre: "Suspense",
+		imgURL:
+			"https://gogocdn.net/cover/youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-tv.png",
+	},
+	{
+		genre: "Thriller",
+		imgURL: "https://gogocdn.net/cover/yakusoku-no-neverland.png",
+	},
+	{
+		genre: "Vampire",
+		imgURL: "https://gogocdn.net/cover/owari-no-seraph.png",
+	},
+	{
+		genre: "Yaoi",
+		imgURL: "https://gogocdn.net/cover/yuri-on-ice.png",
+	},
+	{
+		genre: "Yuri",
+		imgURL: "https://gogocdn.net/images/anime/S/Strawberry-Panic.jpg",
+	},
 ];
 
 export default genresData;
