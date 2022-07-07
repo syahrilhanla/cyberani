@@ -24,7 +24,7 @@ body {
 
 /* Jumbotron component */
 .box-shadow {
-	box-shadow: 130px -1px 60px 0px #030b17 inset;
+	box-shadow: 80px -1px 60px 0px #030b17 inset;
 }
 
 @media only screen and (max-width: 600px) {
