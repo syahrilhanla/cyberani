@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 // const anime = () => {
 // 	const router = useRouter();
@@ -8,4 +8,4 @@ import { useRouter } from "next/router";
 
 // const getServerSideProps = async (context) => {};
 
-export default anime;
+// export default anime;
