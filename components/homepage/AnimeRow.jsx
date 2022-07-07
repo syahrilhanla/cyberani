@@ -5,7 +5,7 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import AnimeCardShowroom from "./AnimeCardShowroom";
+import AnimeCardShowroom from "../common/AnimeCardShowroom";
 
 const AnimeRow = ({ rowTitle, category }) => {
 	const [animeData, setAnimeData] = useState([]);

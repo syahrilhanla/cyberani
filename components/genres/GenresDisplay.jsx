@@ -1,4 +1,4 @@
-import genresData from "./data/genresData";
+import genresData from "./genresData";
 
 const GenresDisplay = () => {
 	return (
