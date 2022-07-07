@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FaPlay } from "react-icons/fa";
 
-const LittleAnimeCard = () => {
+const LittleAnimeCard = ({ data }) => {
 	return (
 		<div>
 			<div className="relative group">
@@ -9,7 +9,7 @@ const LittleAnimeCard = () => {
 					<div className=" absolute left-3 md:left-3 bottom-3">
 						<span className="flex flex-col md:w-[75%]">
 							<p className="opacity-100 z-50 text-sm font-normal md:truncate">
-								Jujutsu Kaisen Zero One Two Three
+								{data.animeTitle}
 							</p>
 							<span className="flex items-center left-3 gap-2">
 								<FaPlay /> <p>S1 Ep1</p>
@@ -19,7 +19,7 @@ const LittleAnimeCard = () => {
 				</div>
 				<span>
 					<img
-						src="https://gogocdn.net/cover/shin-tennis-no-ouji-sama-u-17-world-cup.png"
+						src={data.animeImg}
 						className="object-cover w-full h-full rounded-xl"
 					/>
 				</span>

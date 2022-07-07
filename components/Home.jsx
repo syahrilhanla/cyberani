@@ -8,8 +8,8 @@ const Home = () => {
 			name="home"
 		>
 			<Suggestion />
-			<AnimeRow rowTitle={"Top Anime"} />
-			<AnimeRow rowTitle={"Latest Release"} />
+			<AnimeRow rowTitle={"Top Anime"} category={"popular"} />
+			<AnimeRow rowTitle={"Recent Release"} category={"recent-release"} />
 		</div>
 	);
 };
