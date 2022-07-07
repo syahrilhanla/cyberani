@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import AnimeCardShowroom from "../common/AnimeCardShowroom";
-import fetchAnime from "../utils/fetchAnime";
+import { fetchAnimeList } from "../utils/fetchAnime";
 
 const AnimeRow = ({ rowTitle, category }) => {
 	const [animeData, setAnimeData] = useState([]);
@@ -14,7 +14,7 @@ const AnimeRow = ({ rowTitle, category }) => {
 	// fetch data when initializing component
 	useEffect(() => {
 		const fetchData = async () => {
-			const results = await fetchAnime(category);
+			const results = await fetchAnimeList(category);
 			setAnimeData(results);
 		};
 		fetchData();

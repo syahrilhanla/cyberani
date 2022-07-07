@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AnimeCardEpisode from "../common/AnimeCardEpisode";
 import AnimeCardShowroom from "../common/AnimeCardShowroom";
-import fetchAnime from "../utils/fetchAnime";
+import { fetchAnimeList } from "../utils/fetchAnime";
 
 const DisplayCategory = ({ categoryName, category, animeType }) => {
 	const [animeData, setAnimeData] = useState([]);
@@ -9,7 +9,7 @@ const DisplayCategory = ({ categoryName, category, animeType }) => {
 	// fetch data when initializing component
 	useEffect(() => {
 		const fetchData = async () => {
-			const results = await fetchAnime(category);
+			const results = await fetchAnimeList(category);
 			setAnimeData(results);
 		};
 		fetchData();

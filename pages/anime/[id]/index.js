@@ -6,4 +6,6 @@ const anime = () => {
 	return <div>{id}</div>;
 };
 
+const getServerSideProps = async (context) => {};
+
 export default anime;
