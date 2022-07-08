@@ -18,7 +18,7 @@ const AnimeInfo = ({ animeData }) => {
 			<h1>
 				Genre:{" "}
 				{animeData.genres.map((genre, index) => (
-					<span>
+					<span key={genre}>
 						{genre}
 						{index !== animeData.genres.length - 1 && ", "}
 					</span>

@@ -5,7 +5,10 @@ const Episodes = ({ animeData }) => {
 			<div className="py-0">
 				{animeData.episodesList.reverse().map((episode) => {
 					return (
-						<h4 className="text-lg font-normal py-2 ml-2">
+						<h4
+							className="text-lg font-normal py-2 ml-2"
+							key={episode.episodeNum}
+						>
 							Episode {episode.episodeNum}
 						</h4>
 					);
