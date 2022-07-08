@@ -15,13 +15,13 @@ const Navbar = () => {
 
 	return (
 		<div className="fixed h-[78px] w-full flex justify-between items-center px-4 bg-[#0a192f] text-gray-300 z-50">
-			<div className=" hidden sm:flex justify-between items-center md:w-[45%]">
-				<div className="ml-4 w-16 h-16 flex items-center text-2xl font-light logo">
+			<div className=" hidden sm:flex justify-around items-center md:w-fit">
+				<div className="ml-4 w-fit h-16 flex items-center text-2xl font-light logo">
 					<Link href={"/"}>CyberAni</Link>
 				</div>
 
 				{/* Menu */}
-				<ul className="hidden md:flex justify-between min-w-max gap-6 ml-20 font-medium">
+				<ul className="hidden md:flex justify-between min-w-max gap-6 ml-14 font-medium">
 					<li>
 						<Link href={"/popular"}>Popular</Link>
 					</li>
