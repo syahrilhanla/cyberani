@@ -14,7 +14,7 @@ const VideoComponent = ({ title, episodeDetail }) => {
 	}, [episodeDetail]);
 
 	return (
-		<div>
+		<div className="min-h-[300px]">
 			<h1 className="text-xl font-semibold text-slate-200 mb-4">{title}</h1>
 			{episodeURL && (
 				<iframe
