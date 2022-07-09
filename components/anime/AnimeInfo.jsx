@@ -3,7 +3,7 @@ import React from "react";
 
 const AnimeInfo = ({ animeData }) => {
 	return (
-		<div className="w-full grid grid-cols-1 items-start text-slate-200">
+		<div className="w-full h-fit flex flex-wrap items-start justify-center text-slate-200">
 			{animeData.animeImg && (
 				<Image
 					src={animeData.animeImg}
@@ -13,22 +13,24 @@ const AnimeInfo = ({ animeData }) => {
 					alt={animeData.animeTitle}
 				/>
 			)}
-			<h1>Title: {animeData.animeTitle}</h1>
-			{animeData.otherNames && <h1>Other Names: {animeData.otherNames}</h1>}
-			<h1>Type: {animeData.type}</h1>
-			<h1>Status: {animeData.status}</h1>
-			<h1>Total Episodes: {animeData.totalEpisodes}</h1>
-			{animeData.genres && (
-				<h1>
-					Genre:{" "}
-					{animeData.genres.map((genre, index) => (
-						<span key={genre}>
-							{genre}
-							{index !== animeData.genres.length - 1 && ", "}
-						</span>
-					))}
-				</h1>
-			)}
+			<div className="py-3">
+				<h1>Title: {animeData.animeTitle}</h1>
+				{animeData.otherNames && <h1>Other Names: {animeData.otherNames}</h1>}
+				<h1>Type: {animeData.type}</h1>
+				<h1>Status: {animeData.status}</h1>
+				<h1>Total Episodes: {animeData.totalEpisodes}</h1>
+				{animeData.genres && (
+					<h1>
+						Genre:{" "}
+						{animeData.genres.map((genre, index) => (
+							<span key={genre}>
+								{genre}
+								{index !== animeData.genres.length - 1 && ", "}
+							</span>
+						))}
+					</h1>
+				)}
+			</div>
 		</div>
 	);
 };
