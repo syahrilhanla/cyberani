@@ -1,17 +1,14 @@
-import Head from "next/head";
-import Home from "../components/Home";
-import Navbar from "../components/Navbar";
+import Home from "../components/homepage/Home";
+import Meta from "../components/common/Meta";
 
 export default function HomePage() {
 	return (
-		<div>
-			<Head>
-				<title>CyberAni - Watch Free Anime</title>
-				<meta name="description" content="Free streaming anime platform" />
-				<link rel="icon" href="/CyberAni-logo.png" />
-			</Head>
-			<Navbar />
-			<Home />
-		</div>
+		<>
+			<Meta
+				title={"CyberAni - Watch Free Anime Online"}
+				description={"CyberAni - Watch Free Anime Online"}
+			/>
+			<Home />;
+		</>
 	);
 }

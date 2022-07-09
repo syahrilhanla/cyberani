@@ -24,9 +24,9 @@ body {
 
 /* Jumbotron component */
 .box-shadow {
-	box-shadow: 80px -1px 60px 0px #030b17 inset;
-	-webkit-box-shadow: 80px -1px 60px 0px #030b17 inset;
-	-moz-box-shadow: 80px -1px 60px 0px #030b17 inset;
+	box-shadow: 100px 0px 70px 20px rgba(1, 8, 20, 0.992) inset;
+	-webkit-box-shadow: 100px 0px 70px 20px rgba(1, 8, 20, 0.992) inset;
+	-moz-box-shadow: 100px 0px 70px 20px rgba(1, 8, 20, 0.992) inset;
 }
 
 .box-shadow-little {

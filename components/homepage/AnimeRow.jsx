@@ -1,28 +1,28 @@
+import { useEffect, useState } from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import LittleAnimeCard from "./LittleAnimeCard";
-import { useEffect, useState } from "react";
+import AnimeCardShowroom from "../common/AnimeCardShowroom";
+import { fetchAnimeList } from "../utils/fetchAnime";
 
 const AnimeRow = ({ rowTitle, category }) => {
 	const [animeData, setAnimeData] = useState([]);
 
-	const fetchAnime = async () => {
-		const data = await fetch(`https://gogoanime.herokuapp.com/${category}`);
-		const results = await data.json();
-		setAnimeData(results);
-	};
-
 	// fetch data when initializing component
 	useEffect(() => {
-		fetchAnime();
+		const fetchData = async () => {
+			const results = await fetchAnimeList(category);
+			setAnimeData(results);
+		};
+		fetchData();
 	}, []);
 
 	return (
-		<div className="flex flex-col w-[90%] mt-2 text-left font-medium text-slate-200">
-			<h1 className="text-2xl mb-2">{rowTitle}</h1>
+		<div className="flex flex-col w-[90%] mt-2 text-left font-medium text-slate-200 pb-5">
+			<h1 className="text-2xl mb-2 ml-2">{rowTitle}</h1>
 			<div className="w-full">
 				<Swiper
 					// install Swiper modules
@@ -47,7 +47,7 @@ const AnimeRow = ({ rowTitle, category }) => {
 					{animeData &&
 						animeData.map((data) => (
 							<SwiperSlide key={data.episodeId}>
-								<LittleAnimeCard data={data} />
+								<AnimeCardShowroom data={data} />
 							</SwiperSlide>
 						))}
 

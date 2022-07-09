@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper";
-import fakeData from "./data/fakeData";
+import fakeData from "../categories/fakeData";
 
 import Jumbotron from "./Jumbotron";
 

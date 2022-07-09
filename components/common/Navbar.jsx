@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
 
@@ -11,24 +10,33 @@ const Navbar = () => {
 		if (!navbar) {
 			return "md:hidden absolute top-0 left-0 bg-[#0a192f] flex flex-col justify-center items-center h-screen w-screen ml-[-110%] duration-500";
 		} else
-			return "absolute top-0 left-0 bg-[#0a192f] flex flex-col justify-center items-center h-screen w-screen duration-500";
+			return "md:hidden absolute top-0 left-0 bg-[#0a192f] flex flex-col justify-center items-center h-screen w-screen duration-500";
 	};
 
 	return (
 		<div className="fixed h-[78px] w-full flex justify-between items-center px-4 bg-[#0a192f] text-gray-300 z-50">
-			<div className=" hidden sm:flex justify-between items-center md:w-[45%]">
-				<div className="ml-4 w-16 h-16 flex items-center text-2xl font-light logo">
+			<div className=" hidden sm:flex justify-around items-center md:w-fit">
+				<div className="ml-4 w-fit h-16 flex items-center text-2xl font-light logo">
 					<Link href={"/"}>CyberAni</Link>
 				</div>
 
 				{/* Menu */}
-				<ul className="hidden md:flex justify-between min-w-max gap-6 ml-20 font-medium">
-					<li>Anime List</li>
-					<li>Latest</li>
-					<li>Trending</li>
-					<li>Top</li>
-					<li>Genre</li>
-					<li>Schedule</li>
+				<ul className="hidden md:flex justify-between min-w-max gap-6 ml-14 font-medium">
+					<li>
+						<Link href={"/popular"}>Popular</Link>
+					</li>
+					<li>
+						<Link href={"/latest"}>Latest</Link>
+					</li>
+					<li>
+						<Link href={"/trending"}>Trending</Link>
+					</li>
+					<li>
+						<Link href={"/genres"}>Genre</Link>
+					</li>
+					<li>
+						<Link href={"/"}>Schedule</Link>
+					</li>
 				</ul>
 			</div>
 
@@ -64,37 +72,31 @@ const Navbar = () => {
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					Anime List
+					<Link href={"/popular"}>Popular</Link>
 				</li>
 				<li
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					Latest
+					<Link href={"/latest"}>Latest</Link>
 				</li>
 				<li
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					Trending
+					<Link href={"/trending"}>Trending</Link>
 				</li>
 				<li
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					Top
+					<Link href={"/genres"}>Genre</Link>
 				</li>
 				<li
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					Genre
-				</li>
-				<li
-					className="pb-3 text-3xl"
-					onClick={() => setNavbar((prevValue) => !prevValue)}
-				>
-					Schedule
+					<Link href={"/"}>Schedule</Link>
 				</li>
 			</ul>
 		</div>
