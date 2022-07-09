@@ -12,12 +12,12 @@ const Episodes = ({ animeData, setCurrentEpisode }) => {
 								className="flex flex-row gap-2 w-full justify-center 
 							rounded-lg bg-[#183868] text-blue-300 my-2
 							hover:scale-105 transition-all duration-500"
+								key={episode.episodeNum}
 							>
 								<span className="flex flex-row justify-center items-center">
 									<FaPlay />
 									<h4
 										className="text-lg font-normal py-2 ml-2 cursor-pointer"
-										key={episode.episodeNum}
 										onClick={() => setCurrentEpisode(episode.episodeNum)}
 									>
 										Episode {episode.episodeNum}
