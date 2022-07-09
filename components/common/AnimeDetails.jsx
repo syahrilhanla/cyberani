@@ -29,8 +29,8 @@ const AnimeDetails = ({ animeData }) => {
 
 	return (
 		<div
-			className="grid md:grid-cols-[3fr_5fr_2fr] w-full h-fit
-     mx-auto px-4 md:px-14 gap-12 justify-between mt-5"
+			className="grid md:grid-cols-[3fr_5fr_2fr] w-full
+     mx-auto px-4 md:px-14 gap-12 justify-center md:justify-between overflow-hidden"
 		>
 			<AnimeInfo animeData={animeData} />
 			<VideoComponent
