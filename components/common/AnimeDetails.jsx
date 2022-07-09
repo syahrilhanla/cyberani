@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AnimeInfo from "../anime/AnimeInfo";
 import Episodes from "../anime/Episodes";
 import VideoComponent from "../anime/VideoComponent";
@@ -11,6 +11,21 @@ const AnimeDetails = ({ animeData }) => {
 	const [episodeDetail, setEpisodeDetail] = useState(
 		animeData.episodesList && animeData.episodesList[0]
 	);
+
+	const getIndexOfEpisodeDetail = (currentEpisode) => {
+		const episodeIndex = animeData.episodesList.findIndex(
+			(data) => data.episodeNum === currentEpisode
+		);
+		return episodeIndex;
+	};
+
+	useEffect(() => {
+		setEpisodeDetail(
+			(prevValue) =>
+				(prevValue =
+					animeData.episodesList[getIndexOfEpisodeDetail(currentEpisode)])
+		);
+	}, [currentEpisode]);
 
 	return (
 		<div

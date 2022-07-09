@@ -8,7 +8,6 @@ const VideoComponent = ({ title, episodeDetail }) => {
 		const fetchData = async () => {
 			const results = await fetchAnimeEpisode(episodeDetail.episodeId);
 			setEpisodeURL(results);
-			console.log(episodeURL.Referer);
 		};
 
 		episodeDetail && fetchData();
@@ -16,8 +15,8 @@ const VideoComponent = ({ title, episodeDetail }) => {
 
 	return (
 		<div>
-			<h1 className="text-xl font-semibold text-slate-200">{title}</h1>
-			{episodeURL.Referer && (
+			<h1 className="text-xl font-semibold text-slate-200 mb-4">{title}</h1>
+			{episodeURL && (
 				<iframe
 					allowFullScreen={true}
 					width="100%"
