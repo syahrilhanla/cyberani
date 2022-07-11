@@ -5,8 +5,9 @@ import VideoComponent from "../anime/VideoComponent";
 
 const AnimeDetails = ({ animeData }) => {
 	const lastIndexOfAnime =
-		animeData.episodesList &&
-		animeData.episodesList[animeData.episodesList.length - 1].episodeNum;
+		animeData.episodesList.length > 0
+			? animeData.episodesList[animeData.episodesList.length - 1].episodeNum
+			: "Not Released Yet";
 	const [currentEpisode, setCurrentEpisode] = useState(lastIndexOfAnime);
 	const [episodeDetail, setEpisodeDetail] = useState(
 		animeData.episodesList && animeData.episodesList[0]
