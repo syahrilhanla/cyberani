@@ -27,6 +27,7 @@ const Home = () => {
 				rowTitle={"Anime Movies"}
 				category={"anime-movies"}
 				animeType={"title"}
+				toPage={"movies"}
 			/>
 		</>
 	);
