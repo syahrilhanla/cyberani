@@ -8,8 +8,9 @@ import "swiper/css/navigation";
 import AnimeCardShowroom from "../common/AnimeCardShowroom";
 import { fetchAnimeList } from "../utils/fetchAnime";
 import AnimeCardEpisode from "../common/AnimeCardEpisode";
+import Link from "next/link";
 
-const AnimeRow = ({ rowTitle, category, animeType }) => {
+const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 	const [animeData, setAnimeData] = useState([]);
 
 	// fetch data when initializing component
@@ -23,7 +24,13 @@ const AnimeRow = ({ rowTitle, category, animeType }) => {
 
 	return (
 		<div className="flex flex-col w-[90%] mt-2 text-left font-medium text-slate-200 pb-5">
-			<h1 className="text-2xl mb-2 ml-2">{rowTitle}</h1>
+			<div className="w-fit">
+				<Link href={`/${toPage}`}>
+					<h1 className="text-2xl mb-2 ml-2 cursor-pointer hover:text-blue-500 duration-300">
+						{rowTitle} -<span className="font-light"> Click for more</span>
+					</h1>
+				</Link>
+			</div>
 			<div className="w-full">
 				<Swiper
 					// install Swiper modules
