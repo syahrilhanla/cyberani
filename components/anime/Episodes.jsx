@@ -4,7 +4,7 @@ const Episodes = ({ animeData, setCurrentEpisode }) => {
 	return (
 		<div className="text-slate-200 text-left mt-3">
 			<h1 className="text-3xl font-semibold mb-3">Episodes List</h1>
-			<div className="py-0 bg">
+			<div className="py-0 bg overflow-y-auto overflow-x-hidden max-h-[70vh]">
 				{animeData.episodesList &&
 					animeData.episodesList.reverse().map((episode) => {
 						return (
