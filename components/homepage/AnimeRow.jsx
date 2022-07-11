@@ -7,8 +7,9 @@ import "swiper/css/navigation";
 
 import AnimeCardShowroom from "../common/AnimeCardShowroom";
 import { fetchAnimeList } from "../utils/fetchAnime";
+import AnimeCardEpisode from "../common/AnimeCardEpisode";
 
-const AnimeRow = ({ rowTitle, category }) => {
+const AnimeRow = ({ rowTitle, category, animeType }) => {
 	const [animeData, setAnimeData] = useState([]);
 
 	// fetch data when initializing component
@@ -44,10 +45,19 @@ const AnimeRow = ({ rowTitle, category }) => {
 						},
 					}}
 				>
-					{animeData &&
+					{animeType === "title" &&
+						animeData &&
 						animeData.map((data) => (
 							<SwiperSlide key={data.episodeId}>
 								<AnimeCardShowroom data={data} />
+							</SwiperSlide>
+						))}
+
+					{animeType === "episode" &&
+						animeData &&
+						animeData.map((data) => (
+							<SwiperSlide key={data.episodeId}>
+								<AnimeCardEpisode data={data} animeId={data.animeId} />
 							</SwiperSlide>
 						))}
 

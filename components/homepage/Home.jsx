@@ -5,8 +5,16 @@ const Home = () => {
 	return (
 		<>
 			<Suggestion />
-			<AnimeRow rowTitle={"Top Anime"} category={"popular"} />
-			<AnimeRow rowTitle={"Recent Release"} category={"recent-release"} />
+			<AnimeRow
+				rowTitle={"Top Anime"}
+				category={"popular"}
+				animeType={"title"}
+			/>
+			<AnimeRow
+				rowTitle={"Recent Release"}
+				category={"recent-release"}
+				animeType={"episode"}
+			/>
 		</>
 	);
 };
