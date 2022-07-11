@@ -16,7 +16,7 @@ const AnimeInfo = ({ animeData }) => {
 					alt={animeData.animeTitle}
 				/>
 			)}
-			<div className="py-3">
+			<div className="p-4 gap-3 grid grid-cols-1">
 				<h1>Title: {animeData.animeTitle}</h1>
 				{animeData.otherNames && <h1>Other Names: {animeData.otherNames}</h1>}
 				<h1>Synopsis: {animeData.synopsis}</h1>
