@@ -1,5 +1,7 @@
-const fetchAnimeList = async (category) => {
-	const data = await fetch(`https://gogoanime.herokuapp.com/${category}`);
+const fetchAnimeList = async (category, page = 1) => {
+	const data = await fetch(
+		`https://gogoanime.herokuapp.com/${category}/?page=${page}`
+	);
 	const results = await data.json();
 	return results;
 };

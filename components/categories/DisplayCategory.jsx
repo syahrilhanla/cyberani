@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 import AnimeCardEpisode from "../common/AnimeCardEpisode";
 import AnimeCardShowroom from "../common/AnimeCardShowroom";
+import Pagination from "../common/Pagination";
 import { fetchAnimeList } from "../utils/fetchAnime";
 
 const DisplayCategory = ({ categoryName, category, animeType }) => {
 	const [animeData, setAnimeData] = useState([]);
+	const [currentPage, setCurrentPage] = useState(1);
 
 	// fetch data when initializing component
 	useEffect(() => {
 		const fetchData = async () => {
-			const results = await fetchAnimeList(category);
+			const results = await fetchAnimeList(category, currentPage);
 			setAnimeData(results);
 		};
 		fetchData();
-	}, []);
+		console.log({ currentPage });
+	}, [currentPage]);
 
 	return (
 		<div className="w-[90%] md:w-full p-3 my-6 flex flex-col justify-center items-center">
@@ -39,6 +42,7 @@ const DisplayCategory = ({ categoryName, category, animeType }) => {
 						<AnimeCardEpisode data={data} key={data.animeTitle} />
 					))}
 			</div>
+			<Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
 		</div>
 	);
 };

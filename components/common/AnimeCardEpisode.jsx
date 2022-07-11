@@ -3,6 +3,8 @@ import { FaPlay } from "react-icons/fa";
 
 const AnimeCardEpisode = ({ data }) => {
 	const getAnimeId = (data) => {
+		if (!data.episodeId) return;
+
 		const episodeId = data.episodeId.split("-");
 
 		// removing episode number from URL
