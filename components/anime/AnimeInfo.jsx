@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import { Link } from "react-scroll";
 
 const AnimeInfo = ({ animeData }) => {
 	return (
@@ -17,9 +17,18 @@ const AnimeInfo = ({ animeData }) => {
 				/>
 			)}
 			<div className="p-4 gap-3 grid grid-cols-1">
+				<Link to="watch" smooth={true} duration={500}>
+					<button
+						className="md:hidden px-2 py-1 bg-sky-800 text-sky-100 rounded-md
+				hover:scale-105 transition-all duration-500 min-w-full
+				"
+					>
+						Watch Now
+					</button>
+				</Link>
 				<h1>Title: {animeData.animeTitle}</h1>
 				{animeData.otherNames && <h1>Other Names: {animeData.otherNames}</h1>}
-				<h1>Synopsis: {animeData.synopsis}</h1>
+				<h1 className="block md:hidden">Synopsis: {animeData.synopsis}</h1>
 				<h1>Type: {animeData.type}</h1>
 				<h1>Status: {animeData.status}</h1>
 				<h1>Total Episodes: {animeData.totalEpisodes}</h1>
