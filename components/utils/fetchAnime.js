@@ -6,6 +6,14 @@ const fetchAnimeList = async (category, page = 1) => {
 	return results;
 };
 
+const fetchAnimeGenre = async (category, page = 1) => {
+	const data = await fetch(
+		`https://gogoanime.herokuapp.com/genre/${category}/?page=${page}`
+	);
+	const results = await data.json();
+	return results;
+};
+
 const fetchAnimeDetails = async (animeId) => {
 	const data = await fetch(
 		`https://gogoanime.herokuapp.com/anime-details/${animeId}`
@@ -35,4 +43,5 @@ export {
 	fetchAnimeDetails,
 	fetchAnimeEpisode,
 	fetchAnimeQuery,
+	fetchAnimeGenre,
 };

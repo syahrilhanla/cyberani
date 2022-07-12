@@ -36,7 +36,7 @@ const Navbar = () => {
 						<Link href={"/genres"}>Genre</Link>
 					</li>
 					<li>
-						<Link href={"/"}>Schedule</Link>
+						<Link href={"/movies"}>Movies</Link>
 					</li>
 				</ul>
 			</div>
@@ -92,7 +92,7 @@ const Navbar = () => {
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					<Link href={"/"}>Schedule</Link>
+					<Link href={"/movies"}>Movies</Link>
 				</li>
 			</ul>
 		</div>
