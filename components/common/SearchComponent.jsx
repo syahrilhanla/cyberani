@@ -9,8 +9,12 @@ const SearchComponent = () => {
 
 	const handleChange = (query) => {
 		setTimeout(() => {
+			if (query === "") {
+				setSearchQuery("");
+			}
 			// if letter less than 3, do nothing
 			if (query.length < 3) return;
+
 			setSearchQuery(query);
 		}, 750);
 	};
@@ -41,7 +45,7 @@ const SearchComponent = () => {
 				/>
 				<FaSearch />
 			</div>
-			<DisplayResults searchResults={searchResults} />
+			<DisplayResults searchResults={searchResults} searchQuery={searchQuery} />
 		</div>
 	);
 };

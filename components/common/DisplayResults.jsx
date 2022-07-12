@@ -1,10 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const DisplayResults = ({ searchResults }) => {
+const DisplayResults = ({ searchResults, searchQuery }) => {
 	return (
 		searchResults && (
-			<div className="absolute bottom-[-1]">
+			<div
+				className={
+					searchQuery !== ""
+						? "absolute bottom-[-1] duration-500"
+						: "hidden duration-500"
+				}
+			>
 				<div className="w-[40vh] md:w-full max-h-[70vh] overflow-auto bg-[#0a192f] rounded-lg">
 					{searchResults.length > 0 ? (
 						searchResults.map((result) => (
