@@ -4,12 +4,11 @@ import { fetchAnimeEpisode } from "../utils/fetchAnime";
 const VideoComponent = ({ title, episodeDetail, synopsis }) => {
 	const [episodeURL, setEpisodeURL] = useState();
 
+	const fetchData = async () => {
+		const results = await fetchAnimeEpisode(episodeDetail.episodeId);
+		setEpisodeURL(results);
+	};
 	useEffect(() => {
-		const fetchData = async () => {
-			const results = await fetchAnimeEpisode(episodeDetail.episodeId);
-			setEpisodeURL(results);
-		};
-
 		episodeDetail && fetchData();
 	}, [episodeDetail]);
 

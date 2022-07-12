@@ -22,4 +22,17 @@ const fetchAnimeEpisode = async (episodeId) => {
 	return results;
 };
 
-export { fetchAnimeList, fetchAnimeDetails, fetchAnimeEpisode };
+const fetchAnimeQuery = async (searchQuery) => {
+	const data = await fetch(
+		`https://gogoanime.herokuapp.com/search?keyw=${searchQuery}`
+	);
+	const results = await data.json();
+	return results;
+};
+
+export {
+	fetchAnimeList,
+	fetchAnimeDetails,
+	fetchAnimeEpisode,
+	fetchAnimeQuery,
+};

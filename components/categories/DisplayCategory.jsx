@@ -8,14 +8,13 @@ const DisplayCategory = ({ categoryName, category, animeType }) => {
 	const [animeData, setAnimeData] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 
+	const fetchData = async () => {
+		const results = await fetchAnimeList(category, currentPage);
+		setAnimeData(results);
+	};
 	// fetch data when initializing component
 	useEffect(() => {
-		const fetchData = async () => {
-			const results = await fetchAnimeList(category, currentPage);
-			setAnimeData(results);
-		};
 		fetchData();
-		console.log({ currentPage });
 	}, [currentPage]);
 
 	return (

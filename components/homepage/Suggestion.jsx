@@ -11,7 +11,7 @@ import "swiper/css/autoplay";
 
 const Suggestion = () => {
 	return (
-		<div className="w-full">
+		<div className="w-full mb-7">
 			<Swiper
 				// install Swiper modules
 				modules={[Navigation, Pagination, Autoplay]}

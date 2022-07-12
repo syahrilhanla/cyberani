@@ -13,12 +13,12 @@ import Link from "next/link";
 const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 	const [animeData, setAnimeData] = useState([]);
 
+	const fetchData = async () => {
+		const results = await fetchAnimeList(category);
+		setAnimeData(results);
+	};
 	// fetch data when initializing component
 	useEffect(() => {
-		const fetchData = async () => {
-			const results = await fetchAnimeList(category);
-			setAnimeData(results);
-		};
 		fetchData();
 	}, []);
 
