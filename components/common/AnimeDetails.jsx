@@ -30,13 +30,14 @@ const AnimeDetails = ({ animeData }) => {
 
 	return (
 		<div
-			className="grid md:grid-cols-[3fr_5fr_2fr] w-full
-     mx-auto px-4 md:px-14 gap-12 justify-center md:justify-between overflow-hidden"
+			className="grid md:grid-cols-[3fr_5fr_2fr] grid-cols-1 w-full
+     mx-auto px-4 md:px-14 gap-12 justify-center md:justify-between"
 		>
 			<AnimeInfo animeData={animeData} />
 			<VideoComponent
 				title={`${animeData.animeTitle} - Episode ${currentEpisode}`}
 				episodeDetail={episodeDetail}
+				synopsis={animeData.synopsis}
 			/>
 			<Episodes
 				animeData={animeData}
