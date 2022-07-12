@@ -4,7 +4,7 @@ import AnimeCardShowroom from "../../../components/common/AnimeCardShowroom";
 import Pagination from "../../../components/common/Pagination";
 import { useEffect, useState } from "react";
 
-const index = ({ genre }) => {
+const genrePage = ({ genre }) => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [animeData, setAnimeData] = useState([]);
 
@@ -63,4 +63,4 @@ export const getServerSideProps = async ({ res, params }) => {
 	};
 };
 
-export default index;
+export default genrePage;
