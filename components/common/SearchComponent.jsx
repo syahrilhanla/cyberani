@@ -6,11 +6,13 @@ import DisplayResults from "./DisplayResults";
 const SearchComponent = () => {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
+	const [isFocus, setIsFocus] = useState(false);
 
 	const handleChange = (query) => {
 		setTimeout(() => {
 			if (query === "") {
 				setSearchQuery("");
+				setSearchResults([]);
 			}
 			// if letter less than 3, do nothing
 			if (query.length < 3) return;
@@ -25,10 +27,8 @@ const SearchComponent = () => {
 	};
 
 	useEffect(() => {
-		fetchData();
+		return () => fetchData();
 	}, [searchQuery]);
-
-	useEffect(() => {}, [searchResults]);
 
 	return (
 		<div className="relative">
@@ -42,10 +42,17 @@ const SearchComponent = () => {
            placeholder-gray-400 duration-500 focus:outline-none"
 					placeholder="Search"
 					onChange={(e) => handleChange(e.target.value)}
+					onFocus={() => setIsFocus(true)}
+					onBlur={() => setIsFocus(false)}
 				/>
 				<FaSearch />
 			</div>
-			<DisplayResults searchResults={searchResults} searchQuery={searchQuery} />
+			{isFocus && (
+				<DisplayResults
+					searchResults={searchResults}
+					searchQuery={searchQuery}
+				/>
+			)}
 		</div>
 	);
 };
