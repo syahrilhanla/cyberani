@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
 				<link rel="icon" href="/CyberAni-logo.png" />
 			</Head>
 			<Navbar />
-			<div className="bg-[#0a192f] absolute top-[78px] w-full min-h-screen flex flex-col items-center">
+			<div className="bg-[#0a192f] absolute top-[78px] w-full min-h-[90vh] flex flex-col items-center">
 				{children}
 			</div>
 		</div>

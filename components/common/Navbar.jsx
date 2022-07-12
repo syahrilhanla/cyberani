@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Link from "next/link";
 
-import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
+import SearchComponent from "./SearchComponent";
 
 const Navbar = () => {
 	const [navbar, setNavbar] = useState(false);
@@ -35,24 +36,13 @@ const Navbar = () => {
 						<Link href={"/genres"}>Genre</Link>
 					</li>
 					<li>
-						<Link href={"/"}>Schedule</Link>
+						<Link href={"/movies"}>Movies</Link>
 					</li>
 				</ul>
 			</div>
 
 			{/* Search Bar */}
-			<div
-				className="flex flex-row justify-between
-      border-gray-200 border-b items-center md:mr-10 mr-[-6rem]  text-slate-300"
-			>
-				<input
-					type="text"
-					className=" bg-transparent placeholder-shown:font-light focus:w-[150px] focus:mr-[50px] 
-           placeholder-gray-400 duration-500 focus:outline-none"
-					placeholder="Search"
-				/>
-				<FaSearch />
-			</div>
+			<SearchComponent />
 
 			{/* ======================= MOBILE LAYOUT ============================ */}
 			{/* Hamburger */}
@@ -68,6 +58,12 @@ const Navbar = () => {
 
 			{/* Mobile Menu */}
 			<ul className={setMobileNavbar()}>
+				<li
+					className="pb-3 text-3xl"
+					onClick={() => setNavbar((prevValue) => !prevValue)}
+				>
+					<Link href={"/"}>Home</Link>
+				</li>
 				<li
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
@@ -96,7 +92,7 @@ const Navbar = () => {
 					className="pb-3 text-3xl"
 					onClick={() => setNavbar((prevValue) => !prevValue)}
 				>
-					<Link href={"/"}>Schedule</Link>
+					<Link href={"/movies"}>Movies</Link>
 				</li>
 			</ul>
 		</div>

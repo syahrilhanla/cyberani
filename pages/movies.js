@@ -1,20 +1,20 @@
 import DisplayCategory from "../components/categories/DisplayCategory";
 import Meta from "../components/common/Meta";
 
-const popular = () => {
+const movies = () => {
 	return (
 		<>
 			<Meta
-				title={"Popular - CyberAni"}
+				title={"Anime Movies - CyberAni"}
 				description={"Watch the latest released anime here for free!"}
 			/>
 			<DisplayCategory
 				animeType={"title"}
-				categoryName={"Popular"}
-				category={"popular"}
+				categoryName={"Anime Movies"}
+				category={"anime-movies"}
 			/>
 		</>
 	);
 };
 
-export default popular;
+export default movies;

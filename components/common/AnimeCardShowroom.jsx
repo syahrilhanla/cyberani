@@ -18,7 +18,7 @@ const AnimeCardShowroom = ({ data }) => {
 					<span>
 						<img
 							src={data.animeImg}
-							className="object-cover w-full h-full rounded-xl"
+							className="object-cover w-full rounded-xl h-[240px]"
 						/>
 					</span>
 				</div>

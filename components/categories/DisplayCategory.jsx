@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
 import AnimeCardEpisode from "../common/AnimeCardEpisode";
 import AnimeCardShowroom from "../common/AnimeCardShowroom";
+import Pagination from "../common/Pagination";
 import { fetchAnimeList } from "../utils/fetchAnime";
 
 const DisplayCategory = ({ categoryName, category, animeType }) => {
 	const [animeData, setAnimeData] = useState([]);
+	const [currentPage, setCurrentPage] = useState(1);
 
+	const fetchData = async () => {
+		const results = await fetchAnimeList(category, currentPage);
+		setAnimeData(results);
+	};
 	// fetch data when initializing component
 	useEffect(() => {
-		const fetchData = async () => {
-			const results = await fetchAnimeList(category);
-			setAnimeData(results);
-		};
 		fetchData();
-	}, []);
+	}, [currentPage]);
 
 	return (
 		<div className="w-[90%] md:w-full p-3 my-6 flex flex-col justify-center items-center">
@@ -29,12 +31,17 @@ const DisplayCategory = ({ categoryName, category, animeType }) => {
 				{/* if data results come as series and not as an episode than render AnimeShowroom */}
 				{animeType === "title" &&
 					animeData &&
-					animeData.map((data) => <AnimeCardShowroom data={data} key={data} />)}
+					animeData.map((data) => (
+						<AnimeCardShowroom data={data} key={data.animeTitle} />
+					))}
 				{/* if data results come as episodes than render AnimeCardEpisode */}
 				{animeType === "episode" &&
 					animeData &&
-					animeData.map((data) => <AnimeCardEpisode data={data} key={data} />)}
+					animeData.map((data) => (
+						<AnimeCardEpisode data={data} key={data.animeTitle} />
+					))}
 			</div>
+			<Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
 		</div>
 	);
 };
