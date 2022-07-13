@@ -10,7 +10,7 @@ const trending = () => {
 			/>
 			<DisplayCategory
 				categoryName={"Trending Anime"}
-				animeType={"episode"}
+				animeType={"title"}
 				category={"top-airing"}
 			/>
 		</>
