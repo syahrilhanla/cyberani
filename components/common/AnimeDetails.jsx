@@ -4,14 +4,14 @@ import Episodes from "../anime/Episodes";
 import VideoComponent from "../anime/VideoComponent";
 
 const AnimeDetails = ({ animeData }) => {
-	const lastIndexOfAnime =
-		animeData.episodesList.length > 0
-			? animeData.episodesList[animeData.episodesList.length - 1].episodeNum
-			: "Not Released Yet";
-	const [currentEpisode, setCurrentEpisode] = useState(lastIndexOfAnime);
-	const [episodeDetail, setEpisodeDetail] = useState(
-		animeData.episodesList && animeData.episodesList[0]
+	const firstEpisode =
+		animeData.episodesList &&
+		animeData.episodesList[animeData.episodesList.length - 1];
+
+	const [currentEpisode, setCurrentEpisode] = useState(
+		firstEpisode ? firstEpisode.episodeNum : "Not Released Yet"
 	);
+	const [episodeDetail, setEpisodeDetail] = useState(firstEpisode);
 
 	const getIndexOfEpisodeDetail = (currentEpisode) => {
 		const episodeIndex = animeData.episodesList.findIndex(
