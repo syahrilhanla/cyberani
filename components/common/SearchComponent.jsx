@@ -43,7 +43,11 @@ const SearchComponent = () => {
 					placeholder="Search"
 					onChange={(e) => handleChange(e.target.value)}
 					onFocus={() => setIsFocus(true)}
-					onBlur={() => setIsFocus(false)}
+					onBlur={() => {
+						setTimeout(() => {
+							setIsFocus(false);
+						}, 750);
+					}}
 				/>
 				<FaSearch />
 			</div>
