@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AnimeInfo from "../anime/AnimeInfo";
 import Episodes from "../anime/Episodes";
 import VideoComponent from "../anime/VideoComponent";
+import Meta from "../common/Meta";
 
 const AnimeDetails = ({ animeData }) => {
 	const firstEpisode =
@@ -29,22 +30,28 @@ const AnimeDetails = ({ animeData }) => {
 	}, [currentEpisode, animeData]);
 
 	return (
-		<div
-			className="grid md:grid-cols-[3fr_5fr_2fr] grid-cols-1 w-full
+		<>
+			<Meta
+				title={`${animeData.animeTitle} - CyberAni`}
+				description={"Watch the latest released anime here for free!"}
+			/>
+			<div
+				className="grid md:grid-cols-[3fr_5fr_2fr] grid-cols-1 w-full
      mx-auto px-4 md:px-14 gap-12 justify-center md:justify-between"
-		>
-			<AnimeInfo animeData={animeData} />
-			<VideoComponent
-				title={`${animeData.animeTitle} - Episode ${currentEpisode}`}
-				episodeDetail={episodeDetail}
-				synopsis={animeData.synopsis}
-			/>
-			<Episodes
-				animeData={animeData}
-				currentEpisode={currentEpisode}
-				setCurrentEpisode={setCurrentEpisode}
-			/>
-		</div>
+			>
+				<AnimeInfo animeData={animeData} />
+				<VideoComponent
+					title={`${animeData.animeTitle} - Episode ${currentEpisode}`}
+					episodeDetail={episodeDetail}
+					synopsis={animeData.synopsis}
+				/>
+				<Episodes
+					animeData={animeData}
+					currentEpisode={currentEpisode}
+					setCurrentEpisode={setCurrentEpisode}
+				/>
+			</div>
+		</>
 	);
 };
 
