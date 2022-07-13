@@ -26,7 +26,7 @@ const AnimeDetails = ({ animeData }) => {
 				(prevValue =
 					animeData.episodesList[getIndexOfEpisodeDetail(currentEpisode)])
 		);
-	}, [currentEpisode]);
+	}, [currentEpisode, animeData]);
 
 	return (
 		<div
