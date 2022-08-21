@@ -1,11 +1,15 @@
 import Layout from "../components/common/Layout";
+import { Provider } from "react-redux";
+import animeStore from "../components/redux/animeStore";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
 	return (
-		<Layout>
-			<Component {...pageProps} />
-		</Layout>
+		<Provider store={animeStore}>
+			<Layout>
+				<Component {...pageProps} />
+			</Layout>
+		</Provider>
 	);
 }
 
