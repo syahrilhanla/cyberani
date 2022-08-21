@@ -11,7 +11,7 @@ const DisplayResults = ({ searchResults, searchQuery }) => {
 						: "hidden duration-500"
 				}
 			>
-				<div className="min-w-[40vw] md:w-full max-h-[70vh] overflow-auto bg-[#0a192f] rounded-lg">
+				<div className="w-[60vw] md:w-full max-h-[70vh] overflow-auto bg-[#0a192f] rounded-lg">
 					{searchResults.length > 0 ? (
 						searchResults.map((result) => (
 							<Link href={`/anime/${result.animeId}`} key={result.animeTitle}>
