@@ -2,20 +2,8 @@ import Link from "next/link";
 import { FaPlay } from "react-icons/fa";
 
 const AnimeCardEpisode = ({ data }) => {
-	const getAnimeId = (data) => {
-		if (!data.episodeId) return;
-
-		const episodeId = data.episodeId.split("-");
-
-		// removing episode number from URL
-		episodeId.splice(-2, 2);
-
-		const animeId = episodeId.join("-");
-		return animeId;
-	};
-
 	return (
-		<Link href={`/anime/${getAnimeId(data)}`}>
+		<Link href={`/anime/${data.animeId}`}>
 			<div
 				className="mb-4 mx-2 md:mb-4 cursor-pointer
           hover:scale-110 transition-all gap-2 duration-500"
