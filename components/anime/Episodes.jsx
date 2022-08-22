@@ -44,9 +44,9 @@ const Episodes = ({ animeData }) => {
 				<div>
 					<GoToEpisodeForm animeData={animeData} />
 					<NavButton />
+					<hr className="border-bottom border-1 py-1" />
 				</div>
-				<hr className="border-bottom border-1 py-1" />
-				<div className="overflow-y-auto overflow-x-hidden px-2">
+				<div className="overflow-y-auto px-2">
 					{animeData.episodesList.length > 0 ? (
 						<>
 							{animeData.episodesList.map((episode) => {

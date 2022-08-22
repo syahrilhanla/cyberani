@@ -5,7 +5,7 @@ const AnimeInfo = ({ animeData }) => {
 	return (
 		<div
 			className="w-full h-fit flex flex-wrap 
-		items-start justify-center text-slate-200 overflow-y-auto max-h-[80vh]"
+		items-start justify-center text-slate-200 overflow-y-auto h-[85vh]"
 		>
 			{animeData.animeImg && (
 				<Image
