@@ -14,7 +14,7 @@ export const animeSlice = createSlice({
 				state.episodeNum -= 1;
 			}
 		},
-		goToEpisode: (state) => {
+		goToEpisode: (state, action) => {
 			state.episodeNum = action.payload;
 		},
 	},

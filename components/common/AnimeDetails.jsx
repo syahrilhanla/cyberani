@@ -4,15 +4,16 @@ import Episodes from "../anime/Episodes";
 import VideoComponent from "../anime/VideoComponent";
 import Meta from "../common/Meta";
 
-const AnimeDetails = ({ animeData }) => {
-	const firstEpisode =
-		animeData.episodesList &&
-		animeData.episodesList[animeData.episodesList.length - 1];
+import { useDispatch, useSelector } from "react-redux";
 
-	const [currentEpisode, setCurrentEpisode] = useState(
-		firstEpisode ? firstEpisode.episodeNum : "Not Released Yet"
+const AnimeDetails = ({ animeData }) => {
+	const episode = useSelector((state) =>
+		state.animeReducer.episodeNum.toString()
 	);
-	const [episodeDetail, setEpisodeDetail] = useState(firstEpisode);
+	const dispatch = useDispatch();
+
+	const [currentEpisode, setCurrentEpisode] = useState(episode);
+	const [episodeDetail, setEpisodeDetail] = useState(episode);
 
 	const getIndexOfEpisodeDetail = (currentEpisode) => {
 		const episodeIndex = animeData.episodesList.findIndex(
@@ -22,12 +23,13 @@ const AnimeDetails = ({ animeData }) => {
 	};
 
 	useEffect(() => {
+		console.table({ episode, currentEpisode });
 		setEpisodeDetail(
 			(prevValue) =>
 				(prevValue =
 					animeData.episodesList[getIndexOfEpisodeDetail(currentEpisode)])
 		);
-	}, [currentEpisode, animeData]);
+	}, [currentEpisode, animeData, episode]);
 
 	return (
 		<>

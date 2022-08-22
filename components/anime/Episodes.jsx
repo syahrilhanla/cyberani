@@ -1,12 +1,13 @@
 import { FaPlay } from "react-icons/fa";
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
-import { nextEpisode, prevEpisode } from "../redux/animeSlice";
+import { goToEpisode, nextEpisode, prevEpisode } from "../redux/animeSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 const Episodes = ({ animeData, setCurrentEpisode }) => {
-	const episode = useSelector((state) => state.animeReducer.episodeNum);
+	const episode = useSelector((state) =>
+		state.animeReducer.episodeNum.toString()
+	);
 	const dispatch = useDispatch();
-	console.log({ episode });
 
 	return (
 		<div className="text-slate-200 text-left mt-3">
@@ -18,7 +19,10 @@ const Episodes = ({ animeData, setCurrentEpisode }) => {
 							className="flex flex-row gap-2 w-full justify-center 
 							rounded-lg bg-[#183868] text-blue-300 my-2
 							hover:scale-105 transition-all duration-500 cursor-pointer"
-							onClick={() => dispatch(nextEpisode())}
+							onClick={() => {
+								dispatch(nextEpisode());
+								setCurrentEpisode(episode);
+							}}
 						>
 							<span className="flex flex-row items-center">
 								<h4 className="text-lg font-normal py-2 ml-2">Next Episode</h4>
@@ -29,7 +33,10 @@ const Episodes = ({ animeData, setCurrentEpisode }) => {
 							className="flex flex-row gap-2 w-full justify-center 
 							rounded-lg bg-[#183868] text-blue-300 my-2
 							hover:scale-105 transition-all duration-500 cursor-pointer"
-							onClick={() => dispatch(prevEpisode())}
+							onClick={() => {
+								dispatch(prevEpisode());
+								setCurrentEpisode(episode);
+							}}
 						>
 							<span className="flex flex-row justify-center items-center">
 								<AiOutlineLeft />
@@ -43,7 +50,10 @@ const Episodes = ({ animeData, setCurrentEpisode }) => {
 							rounded-lg bg-[#183868] text-blue-300 my-2
 							hover:scale-105 transition-all duration-500 cursor-pointer"
 									key={episode.episodeNum}
-									onClick={() => setCurrentEpisode(episode.episodeNum)}
+									onClick={() => {
+										dispatch(goToEpisode(episode.episodeNum));
+										setCurrentEpisode(episode.episodeNum);
+									}}
 								>
 									<span className="flex flex-row justify-center items-center">
 										<FaPlay />
