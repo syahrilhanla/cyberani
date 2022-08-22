@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { goToEpisode } from "../redux/animeSlice";
 import checkEpisode from "../utils/checkEpisode";
@@ -8,16 +8,17 @@ const GoToEpisodeForm = ({ animeData }) => {
 	const { errorMessage } = checkEpisode(episodeInput, animeData);
 	const dispatch = useDispatch();
 
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		if (episodeInput) {
+			// if there's no error then do the dispatch
+			if (!errorMessage) dispatch(goToEpisode(episodeInput));
+		}
+	};
+
 	return (
 		<>
-			<form
-				onSubmit={(e) => {
-					e.preventDefault();
-					if (episodeInput) {
-						if (!errorMessage) dispatch(goToEpisode(episodeInput));
-					}
-				}}
-			>
+			<form onSubmit={handleSubmit}>
 				<span className="grid grid-cols-[6fr_3fr] gap-1 py-1">
 					<input
 						type="number"

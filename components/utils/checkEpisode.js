@@ -9,7 +9,6 @@ const checkEpisode = (episodeInput, animeData) => {
 	if (episodesList.length > 0) {
 		// if not found then set error message
 		if (episodeInput) {
-			console.log({ episodeInput });
 			if (!episodesList.find((episodeIndex) => episodeIndex == episodeInput)) {
 				errorMessage = "Episode Not Found!";
 			}
