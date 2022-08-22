@@ -7,29 +7,25 @@ import Meta from "../common/Meta";
 import { useDispatch, useSelector } from "react-redux";
 
 const AnimeDetails = ({ animeData }) => {
-	const episode = useSelector((state) =>
-		state.animeReducer.episodeNum.toString()
-	);
+	const episode = useSelector((state) => state.animeReducer.episodeNum);
 	const dispatch = useDispatch();
 
-	const [currentEpisode, setCurrentEpisode] = useState(episode);
 	const [episodeDetail, setEpisodeDetail] = useState(episode);
 
-	const getIndexOfEpisodeDetail = (currentEpisode) => {
+	const getIndexOfEpisodeDetail = (episode) => {
 		const episodeIndex = animeData.episodesList.findIndex(
-			(data) => data.episodeNum === currentEpisode
+			(data) => data.episodeNum == episode
 		);
 		return episodeIndex;
 	};
 
 	useEffect(() => {
-		console.table({ episode, currentEpisode });
+		console.table({ episode });
 		setEpisodeDetail(
 			(prevValue) =>
-				(prevValue =
-					animeData.episodesList[getIndexOfEpisodeDetail(currentEpisode)])
+				(prevValue = animeData.episodesList[getIndexOfEpisodeDetail(episode)])
 		);
-	}, [currentEpisode, animeData, episode]);
+	}, [episode, animeData]);
 
 	return (
 		<>
@@ -43,15 +39,11 @@ const AnimeDetails = ({ animeData }) => {
 			>
 				<AnimeInfo animeData={animeData} />
 				<VideoComponent
-					title={`${animeData.animeTitle} - Episode ${currentEpisode}`}
+					title={`${animeData.animeTitle} - Episode ${episode}`}
 					episodeDetail={episodeDetail}
 					synopsis={animeData.synopsis}
 				/>
-				<Episodes
-					animeData={animeData}
-					currentEpisode={currentEpisode}
-					setCurrentEpisode={setCurrentEpisode}
-				/>
+				<Episodes animeData={animeData} />
 			</div>
 		</>
 	);

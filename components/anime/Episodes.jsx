@@ -3,10 +3,8 @@ import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import { goToEpisode, nextEpisode, prevEpisode } from "../redux/animeSlice";
 import { useSelector, useDispatch } from "react-redux";
 
-const Episodes = ({ animeData, setCurrentEpisode }) => {
-	const episode = useSelector((state) =>
-		state.animeReducer.episodeNum.toString()
-	);
+const Episodes = ({ animeData }) => {
+	const episode = useSelector((state) => state.animeReducer.episodeNum);
 	const dispatch = useDispatch();
 
 	return (
@@ -21,7 +19,6 @@ const Episodes = ({ animeData, setCurrentEpisode }) => {
 							hover:scale-105 transition-all duration-500 cursor-pointer"
 							onClick={() => {
 								dispatch(nextEpisode());
-								setCurrentEpisode(episode);
 							}}
 						>
 							<span className="flex flex-row items-center">
@@ -35,7 +32,6 @@ const Episodes = ({ animeData, setCurrentEpisode }) => {
 							hover:scale-105 transition-all duration-500 cursor-pointer"
 							onClick={() => {
 								dispatch(prevEpisode());
-								setCurrentEpisode(episode);
 							}}
 						>
 							<span className="flex flex-row justify-center items-center">
@@ -52,7 +48,6 @@ const Episodes = ({ animeData, setCurrentEpisode }) => {
 									key={episode.episodeNum}
 									onClick={() => {
 										dispatch(goToEpisode(episode.episodeNum));
-										setCurrentEpisode(episode.episodeNum);
 									}}
 								>
 									<span className="flex flex-row justify-center items-center">

@@ -15,7 +15,7 @@ export const animeSlice = createSlice({
 			}
 		},
 		goToEpisode: (state, action) => {
-			state.episodeNum = action.payload;
+			state.episodeNum = parseInt(action.payload);
 		},
 	},
 });
