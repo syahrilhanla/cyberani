@@ -4,11 +4,10 @@ import Episodes from "../anime/Episodes";
 import VideoComponent from "../anime/VideoComponent";
 import Meta from "../common/Meta";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const AnimeDetails = ({ animeData }) => {
 	const episode = useSelector((state) => state.animeReducer.episodeNum);
-	const dispatch = useDispatch();
 
 	const [episodeDetail, setEpisodeDetail] = useState(episode);
 
@@ -20,7 +19,6 @@ const AnimeDetails = ({ animeData }) => {
 	};
 
 	useEffect(() => {
-		console.table({ episode });
 		setEpisodeDetail(
 			(prevValue) =>
 				(prevValue = animeData.episodesList[getIndexOfEpisodeDetail(episode)])
@@ -43,7 +41,7 @@ const AnimeDetails = ({ animeData }) => {
 					episodeDetail={episodeDetail}
 					synopsis={animeData.synopsis}
 				/>
-				<Episodes animeData={animeData} />
+				<Episodes animeData={animeData} episode={episode} />
 			</div>
 		</>
 	);

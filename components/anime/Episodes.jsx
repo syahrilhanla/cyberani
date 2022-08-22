@@ -11,7 +11,7 @@ const Episodes = ({ animeData }) => {
 		<div className="text-slate-200 text-left mt-3 max-h-[80vh]">
 			<h1 className="text-3xl font-semibold mb-3">Episodes List</h1>
 			<div className="py-0 px-2 overflow-y-auto overflow-x-hidden h-full">
-				<GoToEpisodeForm />
+				<GoToEpisodeForm animeData={animeData} />
 				{animeData.episodesList.length > 0 ? (
 					<>
 						<div
