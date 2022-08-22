@@ -1,16 +1,15 @@
 import { FaPlay } from "react-icons/fa";
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import { goToEpisode, nextEpisode, prevEpisode } from "../redux/animeSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Episodes = ({ animeData }) => {
-	const episode = useSelector((state) => state.animeReducer.episodeNum);
 	const dispatch = useDispatch();
 
 	return (
-		<div className="text-slate-200 text-left mt-3">
+		<div className="text-slate-200 text-left mt-3 max-h-[80vh]">
 			<h1 className="text-3xl font-semibold mb-3">Episodes List</h1>
-			<div className="py-0 bg overflow-y-auto overflow-x-hidden max-h-[70vh]">
+			<div className="py-0 bg overflow-y-auto overflow-x-hidden h-full">
 				{animeData.episodesList.length > 0 ? (
 					<>
 						<div

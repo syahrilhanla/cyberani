@@ -34,8 +34,8 @@ const AnimeDetails = ({ animeData }) => {
 				description={"Watch the latest released anime here for free!"}
 			/>
 			<div
-				className="grid md:grid-cols-[3fr_5fr_2fr] grid-cols-1 w-full
-     mx-auto px-4 md:px-14 gap-12 justify-center md:justify-between"
+				className="grid lg:grid-cols-[3fr_5fr_2fr] grid-cols-1 w-full
+     mx-auto px-4 lg:px-14 gap-12 justify-center lg:justify-between"
 			>
 				<AnimeInfo animeData={animeData} />
 				<VideoComponent

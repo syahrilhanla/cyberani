@@ -34,7 +34,7 @@ const SearchComponent = () => {
 		<div className="relative">
 			<div
 				className="flex flex-row justify-between
-      border-gray-200 border-b items-center md:mr-10 mr-[-6rem]  text-slate-300"
+      border-gray-200 border-b items-center lg:mr-10 mr-[-6rem]  text-slate-300"
 			>
 				<input
 					type="text"

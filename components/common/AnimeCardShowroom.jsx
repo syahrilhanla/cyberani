@@ -4,7 +4,7 @@ const AnimeCardShowroom = ({ data }) => {
 	return (
 		<Link href={`/anime/${data.animeId}`}>
 			<div
-				className="mb-4 mx-2 md:mb-4
+				className="mb-4 mx-2 lg:mb-4
 			hover:scale-110 transition-all gap-2 duration-500 cursor-pointer"
 			>
 				<div className="relative group">

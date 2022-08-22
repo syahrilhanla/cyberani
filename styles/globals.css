@@ -12,6 +12,7 @@
 html,
 body {
 	padding: 0;
+	background: #0a192f;
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;

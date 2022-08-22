@@ -18,14 +18,14 @@ const DisplayCategory = ({ categoryName, category, animeType }) => {
 	}, [currentPage]);
 
 	return (
-		<div className="w-[90%] md:w-full p-3 my-6 flex flex-col justify-center items-center">
-			<div className="md:w-[70%] ml-3 mb-4">
+		<div className="w-[90%] lg:w-full p-3 my-6 flex flex-col justify-center items-center">
+			<div className="lg:w-[70%] ml-3 mb-4">
 				<h1 className="text-left text-slate-200 text-3xl font-semibold">
 					{categoryName}
 				</h1>
 			</div>
 			<div
-				className="md:w-[70%] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5
+				className="lg:w-[70%] grid grid-cols-2 lg:grid-cols-3 lg:grid-cols-5
      mt-2 text-left font-medium text-slate-100 pb-2"
 			>
 				{/* if data results come as series and not as an episode than render AnimeShowroom */}

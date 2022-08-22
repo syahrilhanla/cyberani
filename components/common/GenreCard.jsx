@@ -4,7 +4,7 @@ const GenreCard = ({ genre }) => {
 	return (
 		<Link href={`/genre/${genre.genre.toLowerCase()}`}>
 			<div
-				className="relative max-h-[18rem] max-w-[10rem] mb-4 mx-2 md:mb-4
+				className="relative max-h-[18rem] max-w-[10rem] mb-4 mx-2 lg:mb-4
           hover:scale-110 transition-all gap-2 duration-500 cursor-pointer"
 				key={genre.genre}
 			>

@@ -31,7 +31,7 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 					</h1>
 				</Link>
 			</div>
-			<div className="w-full">
+			<div className="w-full relative">
 				<Swiper
 					// install Swiper modules
 					slidesPerView={6}
@@ -78,7 +78,7 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 					></div>
 				</Swiper>
 			</div>
-			{/* <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+			{/* <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
 				<LittleAnimeCard />
 				<LittleAnimeCard />
 				<LittleAnimeCard />

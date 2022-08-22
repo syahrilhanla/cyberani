@@ -5,7 +5,7 @@ const AnimeCardEpisode = ({ data }) => {
 	return (
 		<Link href={`/anime/${data.animeId}`}>
 			<div
-				className="mb-4 mx-2 md:mb-4 cursor-pointer
+				className="mb-4 mx-2 lg:mb-4 cursor-pointer
           hover:scale-110 transition-all gap-2 duration-500"
 			>
 				<div className="relative group ">

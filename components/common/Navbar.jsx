@@ -9,20 +9,20 @@ const Navbar = () => {
 
 	const setMobileNavbar = () => {
 		if (!navbar) {
-			return "md:hidden absolute top-0 left-0 bg-[#0a192f] flex flex-col justify-center items-center h-screen w-screen ml-[-110%] duration-500";
+			return "lg:hidden absolute top-0 left-0 bg-[#0a192f] flex flex-col justify-center items-center h-screen w-screen ml-[-110%] duration-500";
 		} else
-			return "md:hidden absolute top-0 left-0 bg-[#0a192f] flex flex-col justify-center items-center h-screen w-screen duration-500";
+			return "lg:hidden absolute top-0 left-0 bg-[#0a192f] flex flex-col justify-center items-center h-screen w-screen duration-500";
 	};
 
 	return (
 		<div className="fixed h-[78px] w-full flex justify-between items-center px-4 bg-[#0a192f] text-gray-300 z-50">
-			<div className=" hidden sm:flex justify-around items-center md:w-fit">
+			<div className=" hidden lg:flex justify-around items-center lg:w-fit">
 				<div className="ml-4 w-fit h-16 flex items-center text-2xl font-light logo">
 					<Link href={"/"}>CyberAni</Link>
 				</div>
 
 				{/* Menu */}
-				<ul className="hidden md:flex justify-between min-w-max gap-6 ml-14 font-medium">
+				<ul className="hidden lg:flex justify-between min-w-max gap-6 ml-14 font-medium">
 					<li>
 						<Link href={"/popular"}>Popular</Link>
 					</li>
@@ -46,7 +46,7 @@ const Navbar = () => {
 
 			{/* ======================= MOBILE LAYOUT ============================ */}
 			{/* Hamburger */}
-			<div className=" flex md:hidden z-10 cursor-pointer">
+			<div className=" flex lg:hidden z-10 cursor-pointer">
 				{navbar ? (
 					<>
 						<FaTimes onClick={() => setNavbar((prevValue) => !prevValue)} />

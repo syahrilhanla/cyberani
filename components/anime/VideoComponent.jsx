@@ -14,7 +14,7 @@ const VideoComponent = ({ title, episodeDetail, synopsis }) => {
 
 	return (
 		<div
-			className="min-h-[300px] max-w-[600px] aspect-auto md:aspect-video"
+			className="min-h-[300px] max-w-[600px] aspect-auto lg:aspect-video"
 			name="watch"
 		>
 			<h1 className="text-xl font-semibold text-slate-200 mb-4">{title}</h1>
@@ -28,13 +28,13 @@ const VideoComponent = ({ title, episodeDetail, synopsis }) => {
 				></iframe>
 			) : (
 				<div
-					className="h-[80%] md:h-full md:w-full bg-slate-500 rounded-lg
+					className="h-[80%] lg:h-full lg:w-full bg-slate-500 rounded-lg
 				 text-slate-200 grid place-items-center"
 				>
 					<h2>Sorry, episode has not been released yet</h2>
 				</div>
 			)}
-			<div className="text-slate-200 mt-4 overflow-auto h-[25vh] leading-relaxed md:block hidden">
+			<div className="text-slate-200 mt-4 overflow-auto h-[25vh] leading-relaxed lg:block hidden">
 				<h2 className="text-xl font-medium">Synopsis:</h2>
 				<p className="font-light">{synopsis}</p>
 			</div>
