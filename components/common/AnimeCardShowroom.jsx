@@ -10,7 +10,10 @@ const AnimeCardShowroom = ({ data }) => {
 			<div
 				className="mb-4 mx-2 lg:mb-4
 			hover:scale-110 transition-all gap-2 duration-500 cursor-pointer"
-				onClick={dispatch(selectAnime(data.animeTitle))}
+				onClick={() => {
+					dispatch(selectAnime(data.animeTitle));
+					dispatch(goToEpisode(1));
+				}}
 			>
 				<div className="relative group">
 					<div className="absolute top-0 left-0 z-10 h-[100%] w-full rounded-lg opacity-20 group-hover:opacity-100 duration-300 box-shadow-little flex items-end">

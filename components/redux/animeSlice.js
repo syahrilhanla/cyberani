@@ -19,8 +19,6 @@ export const animeSlice = createSlice({
 			state.episodeNum = parseInt(action.payload);
 		},
 		selectAnime: (state, action) => {
-			// when select a new anime always go to ep 1
-			state.episodeNum = 1;
 			state.currentAnime = action.payload;
 		},
 	},
