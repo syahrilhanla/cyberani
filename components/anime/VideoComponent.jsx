@@ -34,7 +34,7 @@ const VideoComponent = ({ title, episodeDetail, synopsis }) => {
 					<h2>Sorry, episode has not been released yet</h2>
 				</div>
 			)}
-			<div className="text-slate-200 mt-4 overflow-auto h-[25vh] leading-relaxed lg:block hidden">
+			<div className="text-slate-200 mt-4 overflow-auto h-fit leading-relaxed lg:block hidden">
 				<h2 className="text-xl font-medium">Synopsis:</h2>
 				<p className="font-light">{synopsis}</p>
 			</div>
