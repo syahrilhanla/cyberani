@@ -1,39 +1,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { goToEpisode } from "../redux/animeSlice";
+import checkEpisode from "../utils/checkEpisode";
 
 const GoToEpisodeForm = ({ animeData }) => {
 	const [episodeInput, setEpisodeInput] = useState(null);
-	const [episodesList, setEpisodesList] = useState([]);
-	const [errorMessage, setErrorMessage] = useState(null);
-
+	const { errorMessage } = checkEpisode(episodeInput, animeData);
 	const dispatch = useDispatch();
-
-	useEffect(() => {
-		if (errorMessage) {
-			setTimeout(() => {
-				setErrorMessage(null);
-			}, 3000);
-		}
-	}, [errorMessage]);
-
-	// if episode is available then return true, otherwise false
-	const checkForEpisode = (episodeInput) => {
-		if (animeData) {
-			setEpisodesList(
-				animeData.episodesList.map((episode) => episode.episodeNum)
-			);
-		}
-		// check if there's the episode user looking for
-		if (episodesList.length > 0) {
-			// if not found then set error message
-			if (!episodesList.find((episodeIndex) => episodeIndex == episodeInput)) {
-				setErrorMessage("Episode Not Found!");
-				return false;
-			}
-		}
-		return true;
-	};
 
 	return (
 		<>
@@ -41,8 +14,7 @@ const GoToEpisodeForm = ({ animeData }) => {
 				onSubmit={(e) => {
 					e.preventDefault();
 					if (episodeInput) {
-						if (checkForEpisode(episodeInput))
-							dispatch(goToEpisode(episodeInput));
+						if (!errorMessage) dispatch(goToEpisode(episodeInput));
 					}
 				}}
 			>
