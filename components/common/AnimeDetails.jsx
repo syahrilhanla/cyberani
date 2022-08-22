@@ -4,10 +4,14 @@ import Episodes from "../anime/Episodes";
 import VideoComponent from "../anime/VideoComponent";
 import Meta from "../common/Meta";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { selectAnime } from "../redux/animeSlice";
 
 const AnimeDetails = ({ animeData }) => {
 	const episode = useSelector((state) => state.animeReducer.episodeNum);
+	// const currentAnime = useSelector((state) => state.animeReducer.currentAnime);
+
+	const dispatch = useDispatch();
 
 	const [episodeDetail, setEpisodeDetail] = useState(episode);
 
@@ -17,6 +21,10 @@ const AnimeDetails = ({ animeData }) => {
 		);
 		return episodeIndex;
 	};
+
+	useEffect(() => {
+		dispatch(selectAnime(animeData.animeTitle));
+	}, []);
 
 	useEffect(() => {
 		setEpisodeDetail(
