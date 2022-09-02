@@ -5,7 +5,7 @@ const AnimeInfo = ({ animeData }) => {
 	return (
 		<div
 			className="w-full h-fit flex flex-wrap 
-		items-start justify-center text-slate-200 overflow-y-auto max-h-[80vh]"
+		items-start justify-center text-slate-200 overflow-y-auto h-[85vh]"
 		>
 			{animeData.animeImg && (
 				<Image
@@ -31,7 +31,9 @@ const AnimeInfo = ({ animeData }) => {
 				<h1 className="block lg:hidden">Synopsis: {animeData.synopsis}</h1>
 				<h1>Type: {animeData.type}</h1>
 				<h1>Status: {animeData.status}</h1>
-				<h1>Total Episodes: {animeData.totalEpisodes}</h1>
+				{animeData.type !== "Movie" && (
+					<h1>Total Episodes: {animeData.totalEpisodes}</h1>
+				)}
 				{animeData.genres && (
 					<h1>
 						Genre:{" "}

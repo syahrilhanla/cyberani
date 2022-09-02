@@ -18,7 +18,7 @@ const VideoComponent = ({ title, episodeDetail, synopsis }) => {
 			name="watch"
 		>
 			<h1 className="text-xl font-semibold text-slate-200 mb-4">{title}</h1>
-			{episodeURL ? (
+			{episodeURL?.Referer ? (
 				<iframe
 					allowFullScreen={true}
 					width="100%"
@@ -34,7 +34,7 @@ const VideoComponent = ({ title, episodeDetail, synopsis }) => {
 					<h2>Sorry, episode has not been released yet</h2>
 				</div>
 			)}
-			<div className="text-slate-200 mt-4 overflow-auto h-[25vh] leading-relaxed lg:block hidden">
+			<div className="text-slate-200 mt-4 overflow-auto h-[35vh] leading-relaxed lg:block hidden">
 				<h2 className="text-xl font-medium">Synopsis:</h2>
 				<p className="font-light">{synopsis}</p>
 			</div>

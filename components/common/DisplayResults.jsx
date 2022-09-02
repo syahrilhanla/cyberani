@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { goToEpisode, selectAnime } from "../redux/animeSlice";
 
 const DisplayResults = ({ searchResults, searchQuery }) => {
+	const dispatch = useDispatch();
+
 	return (
 		searchResults && (
 			<div
@@ -17,7 +21,11 @@ const DisplayResults = ({ searchResults, searchQuery }) => {
 							<Link href={`/anime/${result.animeId}`} key={result.animeTitle}>
 								<div
 									className="grid grid-cols-[4fr_6fr] gap-3 place-content-center
-               place-items-center py-2 cursor-pointer hover:bg-[#0f2647] duration-200"
+               			place-items-center py-2 cursor-pointer hover:bg-[#0f2647] duration-200"
+									onClick={() => {
+										dispatch(selectAnime(result.animeTitle));
+										dispatch(goToEpisode(1));
+									}}
 								>
 									<Image
 										height={160}

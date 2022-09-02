@@ -1,12 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { selectAnime, goToEpisode } from "../redux/animeSlice";
 
 const HomeSuggestion = ({ data }) => {
+	const dispatch = useDispatch();
+
 	return (
 		<Link href={`${data.link}`}>
 			<div
 				className="flex lg:flex-row flex-col cursor-pointer 
 			justify-center items-center bg-[#030B17] rounded-lg"
+				onClick={() => {
+					dispatch(selectAnime(data.title));
+					dispatch(goToEpisode(1));
+				}}
 			>
 				<div className="px-4 max-w-md mb-5 lg:mb-0 w-[300px] lg:w-full min-h-[268px]">
 					<h2 className="text-3xl font-semibold mb-3 lg:mt-0 mt-6 text-gray-200">

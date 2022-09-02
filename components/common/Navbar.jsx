@@ -15,7 +15,7 @@ const Navbar = () => {
 	};
 
 	return (
-		<div className="fixed h-[78px] w-full flex justify-between items-center px-4 bg-[#0a192f] text-gray-300 z-50">
+		<div className="fixed h-[10vh] w-full flex justify-between items-center px-4 bg-[#0a192f] text-gray-300 z-50">
 			<div className=" hidden lg:flex justify-around items-center lg:w-fit">
 				<div className="ml-4 w-fit h-16 flex items-center text-2xl font-light logo">
 					<Link href={"/"}>CyberAni</Link>

@@ -1,12 +1,20 @@
 import Link from "next/link";
 import { FaPlay } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { goToEpisode, selectAnime } from "../redux/animeSlice";
 
 const AnimeCardEpisode = ({ data }) => {
+	const dispatch = useDispatch();
+
 	return (
 		<Link href={`/anime/${data.animeId}`}>
 			<div
 				className="mb-4 mx-2 lg:mb-4 cursor-pointer
           hover:scale-110 transition-all gap-2 duration-500"
+				onClick={() => {
+					dispatch(selectAnime(data.animeTitle));
+					dispatch(goToEpisode(data.episodeNum));
+				}}
 			>
 				<div className="relative group ">
 					<div className="absolute top-0 left-0 z-10 h-[100%] w-full rounded-lg opacity-20 group-hover:opacity-100 duration-300 box-shadow-little flex items-end">
