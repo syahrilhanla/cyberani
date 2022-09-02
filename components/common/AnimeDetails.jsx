@@ -5,10 +5,11 @@ import VideoComponent from "../anime/VideoComponent";
 import Meta from "../common/Meta";
 
 import { useSelector, useDispatch } from "react-redux";
-import { selectAnime } from "../redux/animeSlice";
+import { selectAnime, setEpisodeList } from "../redux/animeSlice";
 
 const AnimeDetails = ({ animeData }) => {
 	const episode = useSelector((state) => state.animeReducer.episodeNum);
+	const episodeList = useSelector((state) => state.animeReducer.episodeList);
 	// const currentAnime = useSelector((state) => state.animeReducer.currentAnime);
 
 	const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const AnimeDetails = ({ animeData }) => {
 
 	useEffect(() => {
 		dispatch(selectAnime(animeData.animeTitle));
+		dispatch(setEpisodeList(animeData.episodesList));
 	}, []);
 
 	useEffect(() => {
