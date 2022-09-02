@@ -5,7 +5,6 @@ import { goToEpisode, selectAnime } from "../redux/animeSlice";
 
 const AnimeCardEpisode = ({ data }) => {
 	const dispatch = useDispatch();
-	console.log({ data });
 
 	return (
 		<Link href={`/anime/${data.animeId}`}>

@@ -45,11 +45,17 @@ const AnimeDetails = ({ animeData }) => {
 			>
 				<AnimeInfo animeData={animeData} />
 				<VideoComponent
-					title={`${animeData.animeTitle} - Episode ${episode}`}
+					title={
+						animeData.type !== "Movie"
+							? `${animeData.animeTitle} - Episode ${episode}`
+							: `${animeData.animeTitle}`
+					}
 					episodeDetail={episodeDetail}
 					synopsis={animeData.synopsis}
 				/>
-				<Episodes animeData={animeData} episode={episode} />
+				{animeData.type !== "Movie" && (
+					<Episodes animeData={animeData} episode={episode} />
+				)}
 			</div>
 		</>
 	);

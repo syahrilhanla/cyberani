@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-import { selectAnime } from "../redux/animeSlice";
+import { selectAnime, goToEpisode } from "../redux/animeSlice";
 
 const AnimeCardShowroom = ({ data }) => {
 	const dispatch = useDispatch();

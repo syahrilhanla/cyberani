@@ -18,7 +18,7 @@ const VideoComponent = ({ title, episodeDetail, synopsis }) => {
 			name="watch"
 		>
 			<h1 className="text-xl font-semibold text-slate-200 mb-4">{title}</h1>
-			{episodeURL ? (
+			{episodeURL?.Referer ? (
 				<iframe
 					allowFullScreen={true}
 					width="100%"

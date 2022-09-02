@@ -31,7 +31,9 @@ const AnimeInfo = ({ animeData }) => {
 				<h1 className="block lg:hidden">Synopsis: {animeData.synopsis}</h1>
 				<h1>Type: {animeData.type}</h1>
 				<h1>Status: {animeData.status}</h1>
-				<h1>Total Episodes: {animeData.totalEpisodes}</h1>
+				{animeData.type !== "Movie" && (
+					<h1>Total Episodes: {animeData.totalEpisodes}</h1>
+				)}
 				{animeData.genres && (
 					<h1>
 						Genre:{" "}

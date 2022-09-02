@@ -10,24 +10,28 @@ const Home = () => {
 				category={"popular"}
 				animeType={"title"}
 				toPage={"popular"}
+				key={"popular"}
 			/>
 			<AnimeRow
 				rowTitle={"Recent Release"}
 				category={"recent-release"}
 				animeType={"episode"}
 				toPage={"latest"}
+				key={"latest"}
 			/>
 			<AnimeRow
 				rowTitle={"Top Airing"}
 				category={"top-airing"}
 				animeType={"title"}
 				toPage={"trending"}
+				key={"trending"}
 			/>
 			<AnimeRow
 				rowTitle={"Anime Movies"}
 				category={"anime-movies"}
 				animeType={"title"}
 				toPage={"movies"}
+				key={"movies"}
 			/>
 		</>
 	);
