@@ -1,6 +1,6 @@
 const fetchAnimeList = async (category, page = 1) => {
 	const data = await fetch(
-		`https://gogoanime.herokuapp.com/${category}/?page=${page}`
+		`https://gogoanime.consumet.org/${category}/?page=${page}`
 	);
 	const results = await data.json();
 	return results;
@@ -8,7 +8,7 @@ const fetchAnimeList = async (category, page = 1) => {
 
 const fetchAnimeGenre = async (category, page = 1) => {
 	const data = await fetch(
-		`https://gogoanime.herokuapp.com/genre/${category}/?page=${page}`
+		`https://gogoanime.consumet.org/genre/${category}/?page=${page}`
 	);
 	const results = await data.json();
 	return results;
@@ -16,7 +16,7 @@ const fetchAnimeGenre = async (category, page = 1) => {
 
 const fetchAnimeDetails = async (animeId) => {
 	const data = await fetch(
-		`https://gogoanime.herokuapp.com/anime-details/${animeId}`
+		`https://gogoanime.consumet.org/anime-details/${animeId}`
 	);
 	const results = await data.json();
 	return results;
@@ -24,7 +24,7 @@ const fetchAnimeDetails = async (animeId) => {
 
 const fetchAnimeEpisode = async (episodeId) => {
 	const data = await fetch(
-		`https://gogoanime.herokuapp.com/vidcdn/watch/${episodeId}`
+		`https://gogoanime.consumet.org/vidcdn/watch/${episodeId}`
 	);
 	const results = await data.json();
 	return results;
@@ -32,7 +32,7 @@ const fetchAnimeEpisode = async (episodeId) => {
 
 const fetchAnimeQuery = async (searchQuery) => {
 	const data = await fetch(
-		`https://gogoanime.herokuapp.com/search?keyw=${searchQuery}`
+		`https://gogoanime.consumet.org/search?keyw=${searchQuery}`
 	);
 	const results = await data.json();
 	return results;
