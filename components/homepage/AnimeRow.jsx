@@ -24,7 +24,7 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 	}, []);
 
 	return (
-		<div className="flex flex-col w-[90%] mt-2 text-left font-medium text-slate-200 pb-5">
+		<div className="flex flex-col w-[85%] mt-2 text-left font-medium text-slate-200 pb-5 overflow-visible">
 			<div className="w-fit">
 				<Link href={`/${toPage}`}>
 					<h1 className="text-2xl mb-2 ml-2 cursor-pointer hover:text-blue-500 duration-300">
@@ -32,7 +32,7 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 					</h1>
 				</Link>
 			</div>
-			<div className="w-full relative">
+			<div className="w-full relative overflow-visible">
 				<Swiper
 					// install Swiper modules
 					slidesPerView={6}
@@ -56,7 +56,7 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 					{animeType === "title" &&
 						animeData &&
 						animeData.map((data) => (
-							<SwiperSlide key={data.episodeId}>
+							<SwiperSlide className="py-3" key={data.episodeId}>
 								<AnimeCardShowroom data={data} />
 							</SwiperSlide>
 						))}
@@ -64,7 +64,7 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 					{animeType === "episode" &&
 						animeData &&
 						animeData.map((data) => (
-							<SwiperSlide key={data.episodeId}>
+							<SwiperSlide className="py-3" key={data.episodeId}>
 								<AnimeCardEpisode data={data} animeId={data.animeId} />
 							</SwiperSlide>
 						))}
