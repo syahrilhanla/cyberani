@@ -1,7 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-import { selectAnime, goToEpisode } from "../redux/animeSlice";
 
 const HomeSuggestion = ({ data }) => {
 	const dispatch = useDispatch();
@@ -9,38 +7,27 @@ const HomeSuggestion = ({ data }) => {
 	return (
 		<Link href={`${data.link}`}>
 			<div
-				className="flex lg:flex-row flex-col cursor-pointer 
-			justify-center items-center bg-[#030B17] rounded-lg"
-				onClick={() => {
-					dispatch(selectAnime(data.title));
-					dispatch(goToEpisode(1));
-				}}
+				className="grid grid-cols-[4fr_6fr] md:w-[75dvw] w-full h-64 md:h-[50dvh] rounded-lg overflow-hidden 
+				shadow-lg bg-[#181f33] relative 
+				group-hover:scale-105 group-hover:shadow-slate-800/70 transition-all duration-300"
 			>
-				<div className="px-4 max-w-md mb-5 lg:mb-0 w-[300px] lg:w-full min-h-[268px]">
-					<h2 className="text-3xl font-semibold mb-3 lg:mt-0 mt-6 text-gray-200">
+				{/* Left: Content (placeholder for now) */}
+				<div className="relative px-12 z-10 flex flex-col gap-4 items-start justify-center h-full">
+					{/* Place your content here */}
+					<h2 className="text-2xl md:text-4xl font-bold text-slate-100">
 						{data.title}
 					</h2>
-					<span className="flex w-fit gap-2 mb-3">
-						<p className="font-medium">{data.genre}</p>{" "}
-						<p className="font-medium"> . </p>
-						<p className="font-medium">{data.yearRelease}</p>
-					</span>
-					<p>{data.description}</p>
+					<p className="text-sm md:text-base text-slate-100">
+						{data.description}
+					</p>
 				</div>
-				<div className="px-7 relative lg:min-w-[600px] lg:min-h-[300px] lg:w-[680px] lg:h-[400px] mb-4 lg:mb-0">
+				{/* Right: Image with shadow swallow effect */}
+				<div className="relative w-full h-full">
 					<div
-						className="absolute top-0 left-0 z-10 w-full h-full 
-						shadow-black shadow-2xl box-shadow opacity-100"
-					></div>
-					<div className="z-0 min-w-[200px] min-h-[110px]">
-						<Image
-							src={`/${data.imgURL}`}
-							className={"rounded-lg mb-5"}
-							alt="Current Image"
-							layout={"fill"}
-							objectFit="cover"
-						/>
-					</div>
+						className="absolute inset-0 bg-cover bg-center"
+						style={{ backgroundImage: `url(${data.imgURL})` }}
+					/>
+					<div className="absolute inset-0 bg-gradient-to-r from-[#181f33] via-[#181f33]/90 to-transparent" />
 				</div>
 			</div>
 		</Link>
