@@ -1,17 +1,22 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
+
 import "swiper/css";
 import "swiper/css/navigation";
 
 import AnimeCardShowroom from "../common/AnimeCardShowroom";
 import { fetchAnimeList } from "../utils/fetchAnime";
-import Link from "next/link";
+import useWindowDimensions from "../utils/useWindowDimensions";
+
+import { BiLoaderAlt } from "react-icons/bi";
 
 const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 	const [animeData, setAnimeData] = useState([]);
 	const [loading, setLoading] = useState(true);
+
+	const { width, height } = useWindowDimensions();
 
 	const fetchData = async () => {
 		try {
@@ -30,7 +35,7 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 	}, []);
 
 	return (
-		<div className="flex flex-col w-[80%] mt-2 text-left font-medium text-slate-200 pb-5 overflow-visible">
+		<div className="flex flex-col w-[90%] lg:w-[80%] mt-2 text-left font-medium text-slate-200 pb-5 overflow-visible">
 			<div className="w-fit">
 				<Link href={`/${toPage}`}>
 					<h1 className="text-2xl mb-2 ml-2 cursor-pointer hover:text-blue-500 duration-300">
@@ -41,18 +46,31 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 			<div className="w-full relative overflow-visible">
 				{loading ? (
 					<div className="flex justify-center items-center h-64">
-						<p className="text-slate-400">Loading...</p>
+						<BiLoaderAlt size={64} color="slate" className="animate-spin" />
 					</div>
 				) : (
 					<Swiper
 						modules={[Navigation]}
 						navigation
-						slidesPerView={5}
-						spaceBetween={10}
-						className="anime-row-swiper"
+						slidesPerView={
+							width < 640
+								? 2
+								: width < 768
+								? 3
+								: width < 1024
+								? 3
+								: width < 1280
+								? 5
+								: 5
+						}
+						spaceBetween={5}
+						className="anime-row-swiper overflow-visible"
 					>
 						{animeData.map((anime) => (
-							<SwiperSlide key={anime.id} className="pt-3 pb-2">
+							<SwiperSlide
+								key={anime.id}
+								className="pt-3 pb-2 overflow-visible"
+							>
 								<AnimeCardShowroom data={anime} />
 							</SwiperSlide>
 						))}
