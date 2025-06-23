@@ -2,7 +2,7 @@
 const nextConfig = {
 	reactStrictMode: true,
 	images: {
-		domains: ["gogocdn.net", "goload.pro"],
+		domains: ["gogocdn.net", "goload.pro", "cdn.noitatnemucod.net"],
 	},
 };
 
