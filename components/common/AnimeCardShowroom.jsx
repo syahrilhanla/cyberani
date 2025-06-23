@@ -28,7 +28,11 @@ const AnimeCardShowroom = ({ data }) => {
 
 				{/* Anime Info */}
 				<div className="absolute bottom-1 left-0 right-0 z-20 flex flex-col items-center">
-					<h3 className="text-slate-100 hover:text-white font-semibold text-lg text-center truncate w-full drop-shadow-lg whitespace-normal text-ellipsis max-w-[10rem]">
+					<h3
+						className="text-slate-100 hover:text-white font-semibold 
+						text-lg text-center truncate w-full drop-shadow-lg 
+						whitespace-normal text-ellipsis max-w-full"
+					>
 						{data.title}
 					</h3>
 					<div className="flex items-center gap-1 text-xs text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
