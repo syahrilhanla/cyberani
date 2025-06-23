@@ -14,7 +14,8 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 	const [animeData, setAnimeData] = useState([]);
 
 	const fetchData = async () => {
-		const results = await fetchAnimeList(category);
+		const { results } = await fetchAnimeList(category);
+
 		setAnimeData(results);
 	};
 	// fetch data when initializing component
@@ -78,14 +79,6 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 					></div>
 				</Swiper>
 			</div>
-			{/* <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
-				<LittleAnimeCard />
-				<LittleAnimeCard />
-				<LittleAnimeCard />
-				<LittleAnimeCard />
-				<LittleAnimeCard />
-				<LittleAnimeCard />
-			</div> */}
 		</div>
 	);
 };

@@ -36,7 +36,7 @@ const GenreDetails = ({ genre }) => {
 					</h1>
 				</div>
 				<div
-					className="lg:w-[70%] grid grid-cols-2 lg:grid-cols-3 lg:grid-cols-5
+					className="lg:w-[70%] grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5
      mt-2 text-left font-medium text-slate-100 pb-2"
 				>
 					{/* if data results come as series and not as an episode than render AnimeShowroom */}

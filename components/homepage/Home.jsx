@@ -7,15 +7,15 @@ const Home = () => {
 			<Suggestion />
 			<AnimeRow
 				rowTitle={"Top Anime"}
-				category={"popular"}
+				category={"most-popular"}
 				animeType={"title"}
 				toPage={"popular"}
 				key={"popular"}
 			/>
 			<AnimeRow
-				rowTitle={"Recent Release"}
-				category={"recent-release"}
-				animeType={"episode"}
+				rowTitle={"Recent Episodes"}
+				category={"recent-episodes"}
+				animeType={"title"}
 				toPage={"latest"}
 				key={"latest"}
 			/>
