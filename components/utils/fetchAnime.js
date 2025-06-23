@@ -32,7 +32,7 @@ const fetchAnimeEpisode = async (episodeId) => {
 
 const fetchAnimeQuery = async (searchQuery) => {
 	const data = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}/search?keyw=${searchQuery}`
+		`${process.env.NEXT_PUBLIC_API_URL}/${searchQuery}`
 	);
 	const results = await data.json();
 	return results;
