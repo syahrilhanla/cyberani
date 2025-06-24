@@ -23,7 +23,7 @@ const VideoComponent = ({ title, episodeDetail, synopsis }) => {
 
 	return (
 		<div
-			className="min-h-[360px] max-w-[600px] aspect-auto lg:aspect-video"
+			className="min-h-[360px] max-w-[50dvw] aspect-auto lg:aspect-video"
 			name="watch"
 		>
 			<h1 className="text-xl font-semibold text-slate-200 mb-4">{title}</h1>
