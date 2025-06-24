@@ -18,7 +18,7 @@ const AnimeDetails = ({ animeData }) => {
 	const [episodeDetail, setEpisodeDetail] = useState(episode);
 
 	const getIndexOfEpisodeDetail = (episode) => {
-		const episodeIndex = animeData.episodes.findIndex(
+		const episodeIndex = animeData.episodes?.findIndex(
 			(data) => data.number == episode
 		);
 		return episodeIndex;
@@ -46,7 +46,9 @@ const AnimeDetails = ({ animeData }) => {
 				className="grid lg:grid-cols-[3fr_5fr_2fr] grid-cols-1 w-full h-[90vh]
      mx-auto px-4 lg:px-14 gap-12 justify-center lg:justify-between"
 			>
-				<AnimeInfo animeData={animeData} />
+				{animeData.type !== "Movie" && (
+					<Episodes animeData={animeData} currentEpisode={episode} />
+				)}
 				<VideoComponent
 					title={
 						animeData.type !== "Movie"
@@ -56,9 +58,7 @@ const AnimeDetails = ({ animeData }) => {
 					episodeDetail={episodeDetail}
 					synopsis={animeData.description}
 				/>
-				{animeData.type !== "Movie" && (
-					<Episodes animeData={animeData} episode={episode} />
-				)}
+				<AnimeInfo animeData={animeData} />
 			</div>
 		</>
 	);
