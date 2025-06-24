@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AnimeInfo from "../anime/AnimeInfo";
-import Episodes from "../anime/Episodes";
 import VideoComponent from "../anime/VideoComponent";
 import Meta from "../common/Meta";
 
@@ -9,7 +8,7 @@ import { selectAnime, setEpisodeList } from "../redux/animeSlice";
 
 const AnimeDetails = ({ animeData }) => {
 	const episode = useSelector((state) => state.animeReducer.episodeNum);
-	const episodeList = useSelector((state) => state.animeReducer.episodeList);
+	const episodeList = useSelector((state) => state.animeReducer.episodes);
 	// const currentAnime = useSelector((state) => state.animeReducer.currentAnime);
 
 	const dispatch = useDispatch();
@@ -17,28 +16,28 @@ const AnimeDetails = ({ animeData }) => {
 	const [episodeDetail, setEpisodeDetail] = useState(episode);
 
 	const getIndexOfEpisodeDetail = (episode) => {
-		const episodeIndex = animeData.episodesList.findIndex(
-			(data) => data.episodeNum == episode
+		const episodeIndex = animeData.episodes.findIndex(
+			(data) => data.number == episode
 		);
 		return episodeIndex;
 	};
 
 	useEffect(() => {
-		dispatch(selectAnime(animeData.animeTitle));
-		dispatch(setEpisodeList(animeData.episodesList));
+		dispatch(selectAnime(animeData.title));
+		dispatch(setEpisodeList(animeData.episodes));
 	}, []);
 
 	useEffect(() => {
 		setEpisodeDetail(
 			(prevValue) =>
-				(prevValue = animeData.episodesList[getIndexOfEpisodeDetail(episode)])
+				(prevValue = animeData.episodes[getIndexOfEpisodeDetail(episode)])
 		);
 	}, [episode, animeData]);
 
 	return (
 		<>
 			<Meta
-				title={`${animeData.animeTitle} - CyberAni`}
+				title={`${animeData.title} - CyberAni`}
 				description={"Watch the latest released anime here for free!"}
 			/>
 			<div
@@ -49,15 +48,15 @@ const AnimeDetails = ({ animeData }) => {
 				<VideoComponent
 					title={
 						animeData.type !== "Movie"
-							? `${animeData.animeTitle} - Episode ${episode}`
-							: `${animeData.animeTitle}`
+							? `${animeData.title} - Episode ${episode}`
+							: `${animeData.title}`
 					}
 					episodeDetail={episodeDetail}
-					synopsis={animeData.synopsis}
+					synopsis={animeData.description}
 				/>
-				{animeData.type !== "Movie" && (
+				{/* {animeData.type !== "Movie" && (
 					<Episodes animeData={animeData} episode={episode} />
-				)}
+				)} */}
 			</div>
 		</>
 	);

@@ -1,15 +1,22 @@
 import { useEffect, useState } from "react";
-import { fetchAnimeEpisode } from "../utils/fetchAnime";
 
 const VideoComponent = ({ title, episodeDetail, synopsis }) => {
-	const [episodeURL, setEpisodeURL] = useState();
+	const [episodeURL, setEpisodeURL] = useState("");
 
-	const fetchData = async () => {
-		const results = await fetchAnimeEpisode(episodeDetail.episodeId);
-		setEpisodeURL(results);
+	const setStreamURL = async () => {
+		const seriesId = episodeDetail?.id?.split("$")?.[0];
+		const episodeId = episodeDetail?.id?.split("$")?.[2];
+
+		setEpisodeURL(
+			`https://streamx2.top/vidcloud.php?id=${seriesId}?ep=${episodeId}`
+		);
+
+		// format:
+		// https://streamx2.top/vidcloud.php?id=sakamoto-days-19431?ep=131797
 	};
+
 	useEffect(() => {
-		episodeDetail && fetchData();
+		episodeDetail && setStreamURL();
 	}, [episodeDetail]);
 
 	return (
@@ -18,13 +25,13 @@ const VideoComponent = ({ title, episodeDetail, synopsis }) => {
 			name="watch"
 		>
 			<h1 className="text-xl font-semibold text-slate-200 mb-4">{title}</h1>
-			{episodeURL?.Referer ? (
+			{episodeURL ? (
 				<iframe
 					allowFullScreen={true}
 					width="100%"
 					height="100%"
 					scrolling="no"
-					src={`${episodeURL.Referer}`}
+					src={episodeURL}
 				></iframe>
 			) : (
 				<div

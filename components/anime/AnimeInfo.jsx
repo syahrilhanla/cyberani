@@ -5,15 +5,15 @@ const AnimeInfo = ({ animeData }) => {
 	return (
 		<div
 			className="w-full h-fit flex flex-wrap 
-		items-start justify-center text-slate-200 overflow-y-auto h-[85vh]"
+		items-start justify-center text-slate-200 overflow-y-auto"
 		>
-			{animeData.animeImg && (
+			{animeData.image && (
 				<Image
-					src={animeData.animeImg}
+					src={animeData.image}
 					height={360}
 					width={278}
 					className="rounded-lg"
-					alt={animeData.animeTitle}
+					alt={animeData.title}
 				/>
 			)}
 			<div className="p-4 gap-3 grid grid-cols-1">
@@ -26,9 +26,11 @@ const AnimeInfo = ({ animeData }) => {
 						Watch Now
 					</button>
 				</Link>
-				<h1>Title: {animeData.animeTitle}</h1>
-				{animeData.otherNames && <h1>Other Names: {animeData.otherNames}</h1>}
-				<h1 className="block lg:hidden">Synopsis: {animeData.synopsis}</h1>
+				<h1>Title: {animeData.title}</h1>
+				{animeData.japaneseTitle && (
+					<h1>Other Names: {animeData.japaneseTitle}</h1>
+				)}
+				<h1 className="block lg:hidden">Synopsis: {animeData.description}</h1>
 				<h1>Type: {animeData.type}</h1>
 				<h1>Status: {animeData.status}</h1>
 				{animeData.type !== "Movie" && (

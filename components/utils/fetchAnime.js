@@ -16,15 +16,16 @@ const fetchAnimeGenre = async (category, page = 1) => {
 
 const fetchAnimeDetails = async (animeId) => {
 	const data = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}/anime-details/${animeId}`
+		`${process.env.NEXT_PUBLIC_API_URL}/info?id=${animeId}`
 	);
 	const results = await data.json();
 	return results;
 };
 
+// currently not used, for future reference only
 const fetchAnimeEpisode = async (episodeId) => {
 	const data = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}/vidcdn/watch/${episodeId}`
+		`${process.env.NEXT_PUBLIC_API_URL}/watch/${episodeId}` // Adjust server as needed
 	);
 	const results = await data.json();
 	return results;
