@@ -12,7 +12,7 @@ const Episodes = ({ animeData, currentEpisode }) => {
 	const dispatch = useDispatch();
 
 	const NavButton = () => (
-		<div className="flex gap-2 w-full justify-center mt-2">
+		<div className="flex gap-2 w-full justify-center">
 			<button
 				className="flex items-center gap-2 px-4 py-2
 					bg-inherit
@@ -38,11 +38,11 @@ const Episodes = ({ animeData, currentEpisode }) => {
 				<h1 className="md:text-xl text-lg font-semibold mb-2 text-blue-200 tracking-wide">
 					List of Episodes
 				</h1>
-				<div className="">
+				<div>
 					<GoToEpisodeForm animeData={animeData} />
 					<NavButton />
 				</div>
-				<hr className="border-blue-900/40 my-3" />
+				<hr className="border-blue-900/30 my-2" />
 			</div>
 			<div className="flex-1 overflow-y-auto px-1 custom-scrollbar">
 				{animeData.episodes.length > 0 ? (
