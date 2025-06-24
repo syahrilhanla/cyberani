@@ -1,6 +1,6 @@
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper";
-import fakeData from "../categories/fakeData";
 
 import Jumbotron from "./Jumbotron";
 
@@ -8,8 +8,34 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
+import { fetchAnimeList } from "../utils/fetchAnime";
 
 const Suggestion = () => {
+	const [topAiringList, setTopAiringList] = useState([]);
+
+	useEffect(() => {
+		const fetchTopAiring = async () => {
+			const { results } = await fetchAnimeList("suggestions");
+
+			console.log(results);
+
+			setTopAiringList(
+				results.map((anime) => ({
+					imgURL: anime.image,
+					yearRelease: anime.season,
+					title: anime.title,
+					link: `/anime/${anime.id}`,
+					genre: anime.genres.join(", "),
+					description: anime.description,
+				}))
+			);
+		};
+
+		fetchTopAiring();
+	}, []);
+
+	console.log(topAiringList);
+
 	return (
 		<div className="w-[95%] mb-7">
 			<Swiper
@@ -27,7 +53,7 @@ const Suggestion = () => {
 				slidesPerView={1}
 				speed={500}
 			>
-				{fakeData.map((data) => (
+				{topAiringList.map((data) => (
 					<SwiperSlide key={data.title}>
 						<Jumbotron data={data} />
 					</SwiperSlide>

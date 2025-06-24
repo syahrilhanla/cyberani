@@ -30,10 +30,12 @@ const HomeSuggestion = ({ data }) => {
 						Watch Now
 					</button>
 				</div>
-				<div className="relative w-full h-full">
+				<div className="relative w-full h-full blur-[3px]">
 					<div
-						className="absolute inset-0 bg-cover bg-center"
-						style={{ backgroundImage: `url(${data.imgURL})` }}
+						className="absolute inset-0 bg-cover bg-center "
+						style={{
+							backgroundImage: `url(${data.imgURL})`,
+						}}
 					/>
 					<div className="absolute inset-0 bg-gradient-to-r from-[#181f33] via-[#181f33]/90 to-transparent" />
 				</div>
