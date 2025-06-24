@@ -23,7 +23,7 @@ const VideoComponent = ({ title, episodeDetail, synopsis }) => {
 
 	return (
 		<div
-			className="min-h-[360px] max-w-[50dvw] aspect-auto lg:aspect-video"
+			className="lg:min-h-[360px] mb-12 lg:mb-0 max-w-full lg:max-w-[55dvw] aspect-auto lg:aspect-video"
 			name="watch"
 		>
 			<h1 className="text-xl font-semibold text-slate-200 mb-4">{title}</h1>
@@ -45,7 +45,7 @@ const VideoComponent = ({ title, episodeDetail, synopsis }) => {
 			<div className="text-slate-200 mt-4 overflow-auto h-[35vh] leading-relaxed lg:block hidden">
 				<h2 className="text-xl font-medium">Synopsis:</h2>
 				<p
-					className={`text-sm md:text-base font-light ${
+					className={`text-sm font-light ${
 						showFullSynopsis ? "" : "line-clamp-3"
 					}`}
 				>
@@ -53,7 +53,7 @@ const VideoComponent = ({ title, episodeDetail, synopsis }) => {
 				</p>
 				{synopsis && synopsis.length > 0 && (
 					<button
-						className="text-sm md:text-base text-slate-200 mt-1 hover:underline focus:outline-none"
+						className="text-sm text-slate-200 mt-1 hover:underline focus:outline-none"
 						onClick={() => setShowFullSynopsis((prev) => !prev)}
 					>
 						{showFullSynopsis ? "Show less" : "Read more"}

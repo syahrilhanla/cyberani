@@ -43,22 +43,33 @@ const AnimeDetails = ({ animeData }) => {
 				description={"Watch the latest released anime here for free!"}
 			/>
 			<div
-				className="grid lg:grid-cols-[2fr_7fr_3fr] grid-cols-1 w-full h-[90vh]
-     mx-auto px-4 lg:px-14 gap-12 justify-center lg:justify-between"
+				className="grid grid-cols-1 lg:grid-cols-[2fr_7fr_3fr] w-full h-auto lg:h-[90vh]
+					mx-auto px-4 lg:px-14 gap-6 md:gap-8 lg:gap-12 justify-center lg:justify-between"
 			>
+				{/* Anime Info Section */}
+				<div className="order-1 lg:order-3 md:col-span-2 lg:col-span-1">
+					<AnimeInfo animeData={animeData} />
+				</div>
+
+				{/* Video Section */}
+				<div className="order-2 lg:order-2">
+					<VideoComponent
+						title={
+							animeData.type !== "Movie"
+								? `${animeData.title} - Episode ${episode}`
+								: `${animeData.title}`
+						}
+						episodeDetail={episodeDetail}
+						synopsis={animeData.description}
+					/>
+				</div>
+
+				{/* Episodes Section */}
 				{animeData.type !== "Movie" && (
-					<Episodes animeData={animeData} currentEpisode={episode} />
+					<div className="order-3 lg:order-1">
+						<Episodes animeData={animeData} currentEpisode={episode} />
+					</div>
 				)}
-				<VideoComponent
-					title={
-						animeData.type !== "Movie"
-							? `${animeData.title} - Episode ${episode}`
-							: `${animeData.title}`
-					}
-					episodeDetail={episodeDetail}
-					synopsis={animeData.description}
-				/>
-				<AnimeInfo animeData={animeData} />
 			</div>
 		</>
 	);
