@@ -1,27 +1,42 @@
 import Link from "next/link";
 import { useDispatch } from "react-redux";
+
 import { IoPlayCircle } from "react-icons/io5";
+import { GrChapterAdd } from "react-icons/gr";
+import { FaPlayCircle } from "react-icons/fa";
 
 const HomeSuggestion = ({ data }) => {
 	const dispatch = useDispatch();
 
 	return (
-		<Link href={`${data.link}`}>
-			<div
-				className="grid grid-cols-[5fr_4fr] md:grid-cols-[4fr_6fr]  w-full h-64 md:h-[60dvh] rounded-lg overflow-hidden 
+		<div
+			className="grid grid-cols-[5fr_4fr] md:grid-cols-[4fr_6fr]  w-full h-64 md:h-[60dvh] rounded-lg overflow-hidden 
 				shadow-lg bg-[#181f33] relative 
 				group-hover:scale-105 group-hover:shadow-slate-800/70 transition-all duration-300"
-			>
-				{/* Left: Content (placeholder for now) */}
-				<div className="relative px-4 md:px-12 z-10 flex flex-col gap-4 items-start justify-center h-full">
-					{/* Place your content here */}
-					<h2 className="text-2xl md:text-4xl font-bold text-slate-100">
-						{data.title}
-					</h2>
-					<p className="hidden sm:block text-sm md:text-base text-slate-100 line-clamp-3 md:line-clamp-none max-w-[32rem] md:max-w-none">
-						{data.description}
-					</p>
-
+		>
+			<div className="relative px-4 md:px-12 z-10 flex flex-col gap-4 items-start justify-center h-full">
+				<h2 className="text-2xl md:text-4xl font-bold text-slate-200">
+					{data.title}
+				</h2>
+				<div className="text-slate-200 flex gap-3">
+					<span
+						className="px-4 py-1.5 rounded-full bg-slate-600 font-semibold text-sm"
+						title="Season of Anime"
+					>
+						{data.season}
+					</span>
+					<span className="flex items-center" title="Type of Anime">
+						<FaPlayCircle className="inline mr-1 h-6 w-6" /> {data.type}
+					</span>
+					<span className="flex items-center" title="Total Episodes">
+						<GrChapterAdd className="inline mr-1 h-6 w-6" />{" "}
+						{data.totalEpisodes}
+					</span>
+				</div>
+				<p className="text-xs md:text-base text-slate-200 line-clamp-3 text-ellipsis">
+					{data.description}
+				</p>
+				<Link href={`${data.link}`}>
 					<button
 						className="mt-4 px-4 py-1.5 text-slate-800 rounded-full
 						bg-slate-300 hover:scale-[1.03] transition-transform duration-300 text-base font-semibold"
@@ -29,18 +44,18 @@ const HomeSuggestion = ({ data }) => {
 						<IoPlayCircle className="inline mr-1" size={24} />
 						Watch Now
 					</button>
-				</div>
-				<div className="relative w-full h-full blur-[3px]">
-					<div
-						className="absolute inset-0 bg-cover bg-center "
-						style={{
-							backgroundImage: `url(${data.imgURL})`,
-						}}
-					/>
-					<div className="absolute inset-0 bg-gradient-to-r from-[#181f33] via-[#181f33]/90 to-transparent" />
-				</div>
+				</Link>
 			</div>
-		</Link>
+			<div className="relative w-full h-full blur-[3px]">
+				<div
+					className="absolute inset-0 bg-cover bg-center "
+					style={{
+						backgroundImage: `url(${data.imgURL})`,
+					}}
+				/>
+				<div className="absolute inset-0 bg-gradient-to-r from-[#181f33] via-[#181f33]/90 to-transparent" />
+			</div>
+		</div>
 	);
 };
 

@@ -17,8 +17,6 @@ const Suggestion = () => {
 		const fetchTopAiring = async () => {
 			const { results } = await fetchAnimeList("suggestions");
 
-			console.log(results);
-
 			setTopAiringList(
 				results.map((anime) => ({
 					imgURL: anime.image,
@@ -26,15 +24,16 @@ const Suggestion = () => {
 					title: anime.title,
 					link: `/anime/${anime.id}`,
 					genre: anime.genres.join(", "),
+					season: anime.season,
+					type: anime.type,
 					description: anime.description,
+					totalEpisodes: anime.totalEpisodes,
 				}))
 			);
 		};
 
 		fetchTopAiring();
 	}, []);
-
-	console.log(topAiringList);
 
 	return (
 		<div className="w-[95%] mb-7">
@@ -51,7 +50,9 @@ const Suggestion = () => {
 				centeredSlides={true}
 				centeredSlidesBounds={true}
 				slidesPerView={1}
+				loop={true}
 				speed={500}
+				rewind={true}
 			>
 				{topAiringList.map((data) => (
 					<SwiperSlide key={data.title}>
