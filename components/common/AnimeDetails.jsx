@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+
+import Meta from "../common/Meta";
 import AnimeInfo from "../anime/AnimeInfo";
 import VideoComponent from "../anime/VideoComponent";
-import Meta from "../common/Meta";
+import Episodes from "../anime/Episodes";
 
 import { useSelector, useDispatch } from "react-redux";
 import { selectAnime, setEpisodeList } from "../redux/animeSlice";
@@ -54,9 +56,9 @@ const AnimeDetails = ({ animeData }) => {
 					episodeDetail={episodeDetail}
 					synopsis={animeData.description}
 				/>
-				{/* {animeData.type !== "Movie" && (
+				{animeData.type !== "Movie" && (
 					<Episodes animeData={animeData} episode={episode} />
-				)} */}
+				)}
 			</div>
 		</>
 	);
