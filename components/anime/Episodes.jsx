@@ -16,14 +16,14 @@ const Episodes = ({ animeData, currentEpisode }) => {
 			<button
 				className="flex items-center gap-2 px-4 py-2
 					bg-inherit
-				rounded-lg text-white font-semibold shadow transition-all duration-300"
+				rounded-lg text-white font-semibold"
 				onClick={() => dispatch(prevEpisode())}
 			>
 				<TbPlayerTrackPrevFilled />
 				Prev
 			</button>
 			<button
-				className="flex items-center gap-2 px-4 py-2 rounded-lg text-white font-semibold shadow transition-all duration-300"
+				className="flex items-center gap-2 px-4 py-2 rounded-lg text-white font-semibold"
 				onClick={() => dispatch(nextEpisode())}
 			>
 				Next
@@ -33,12 +33,12 @@ const Episodes = ({ animeData, currentEpisode }) => {
 	);
 
 	return (
-		<div className="bg-[#16213e]/80 rounded-2xl shadow-xl p-3 text-slate-200 max-h-[80vh] flex flex-col">
+		<div className="bg-[#16213e]/80 rounded-2xl shadow-xl py-2 px-3 text-slate-200 max-h-[80vh] flex flex-col">
 			<div className="sticky top-0 z-20 rounded-t-2xl pb-2 mb-2">
-				<h1 className="text-2xl font-bold mb-2 text-blue-200 tracking-wide">
-					Episodes List
+				<h1 className="md:text-xl text-lg font-semibold mb-2 text-blue-200 tracking-wide">
+					List of Episodes
 				</h1>
-				<div className="flex flex-col gap-2">
+				<div className="">
 					<GoToEpisodeForm animeData={animeData} />
 					<NavButton />
 				</div>
