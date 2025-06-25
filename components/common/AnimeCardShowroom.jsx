@@ -8,7 +8,7 @@ const AnimeCardShowroom = ({ data }) => {
 	return (
 		<Link href={`/anime/${data.id}`}>
 			<article
-				className="group relative w-fit shadow-lg hover:scale-105 transition-all duration-300 overflow-hidden
+				className="group relative w-fit shadow-lg hover:scale-[1.02] transition-all duration-300 overflow-hidden
 					cursor-pointer rounded-3xl xl:h-[20rem] h-[14rem]"
 				onClick={() => {
 					dispatch({ type: "anime/selectAnime", payload: data.title });
@@ -20,7 +20,7 @@ const AnimeCardShowroom = ({ data }) => {
 					<Image
 						src={data.image}
 						alt={data.title}
-						className="object-contain duration-500 group-hover:opacity-30 rounded-t-3xl"
+						className="object-contain duration-500 group-hover:opacity-20 hover:blur-[1px] opacity-[0.75] rounded-t-3xl"
 						width={270}
 						height={380}
 					/>
