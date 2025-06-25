@@ -41,7 +41,7 @@ const AnimeInfo = ({ animeData }) => {
 					<SiMyanimelist size={28} /> More Info
 				</a>
 
-				<h1 className="text-lg font-bold text-blue-300">{animeData.title}</h1>
+				<h2 className="text-lg font-bold text-blue-300">{animeData.title}</h2>
 				{animeData.japaneseTitle && (
 					<h2 className="text-sm font-medium text-blue-200">
 						Other Names: {animeData.japaneseTitle}
@@ -49,7 +49,7 @@ const AnimeInfo = ({ animeData }) => {
 				)}
 				<h2 className="text-sm text-slate-300">
 					Synopsis:{" "}
-					<span className={expandDescription ? "" : "line-clamp-3"}>
+					<span className={expandDescription ? "" : "line-clamp-1"}>
 						{animeData.description}
 					</span>
 					{animeData.description && animeData.description.length > 120 && (

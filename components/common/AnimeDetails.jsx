@@ -10,8 +10,6 @@ import { selectAnime, setEpisodeList } from "../redux/animeSlice";
 
 const AnimeDetails = ({ animeData }) => {
 	const episode = useSelector((state) => state.animeReducer.episodeNum);
-	const episodeList = useSelector((state) => state.animeReducer.episodes);
-	// const currentAnime = useSelector((state) => state.animeReducer.currentAnime);
 
 	const dispatch = useDispatch();
 

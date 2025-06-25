@@ -10,8 +10,8 @@ const latest = () => {
 			/>
 			<DisplayCategory
 				categoryName={"Latest Release"}
-				animeType={"episode"}
-				category={"recent-release"}
+				animeType={"title"}
+				category={"recent-episodes"}
 			/>
 		</>
 	);
