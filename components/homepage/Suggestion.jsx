@@ -45,7 +45,11 @@ const Suggestion = () => {
 					prevEl: ".swiper-button-prev",
 				}}
 				autoplay={{ delay: 3500 }}
-				pagination={{ el: ".swiper-pagination", clickable: true }}
+				pagination={{
+					el: ".swiper-pagination",
+					clickable: true,
+					bulletClass: ".swiper-pagination-bullet",
+				}}
 				spaceBetween={100}
 				centeredSlides={true}
 				centeredSlidesBounds={true}
