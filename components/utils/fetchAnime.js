@@ -8,7 +8,7 @@ const fetchAnimeList = async (category, page = 1) => {
 
 const fetchAnimeGenre = async (category, page = 1) => {
 	const data = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}/genre/${category}/?page=${page}`
+		`${process.env.NEXT_PUBLIC_API_URL}/genre/${category}?page=${page}`
 	);
 	const results = await data.json();
 	return results;
