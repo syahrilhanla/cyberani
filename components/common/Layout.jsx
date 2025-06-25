@@ -8,7 +8,6 @@ const Layout = ({ children }) => {
 			<div className="w-full flex flex-col items-center">
 				<Head>
 					<meta name="description" content="Free streaming anime platform" />
-					<link rel="icon" href="/CyberAni-logo.png" />
 				</Head>
 				<div className="w-full flex flex-col items-center top-[10vh] absolute">
 					{children}

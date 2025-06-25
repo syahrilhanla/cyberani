@@ -55,7 +55,7 @@ a {
 
 /* custom scroll bar */
 ::-webkit-scrollbar {
-	width: 0.8rem;
+	width: 0.4rem;
 	background-color: hsla(216, 74%, 18%, 0.8);
 	opacity: 0.1;
 }

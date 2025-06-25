@@ -11,7 +11,7 @@ const popular = () => {
 			<DisplayCategory
 				animeType={"title"}
 				categoryName={"Popular"}
-				category={"popular"}
+				category={"most-popular"}
 			/>
 		</>
 	);

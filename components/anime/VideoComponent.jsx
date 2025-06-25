@@ -1,42 +1,64 @@
 import { useEffect, useState } from "react";
-import { fetchAnimeEpisode } from "../utils/fetchAnime";
 
 const VideoComponent = ({ title, episodeDetail, synopsis }) => {
-	const [episodeURL, setEpisodeURL] = useState();
+	const [episodeURL, setEpisodeURL] = useState("");
 
-	const fetchData = async () => {
-		const results = await fetchAnimeEpisode(episodeDetail.episodeId);
-		setEpisodeURL(results);
+	const setStreamURL = async () => {
+		const seriesId = episodeDetail?.id?.split("$")?.[0];
+		const episodeId = episodeDetail?.id?.split("$")?.[2];
+
+		setEpisodeURL(
+			`https://streamx2.top/vidcloud.php?id=${seriesId}?ep=${episodeId}`
+		);
+
+		// format:
+		// https://streamx2.top/vidcloud.php?id=sakamoto-days-19431?ep=131797
 	};
+
 	useEffect(() => {
-		episodeDetail && fetchData();
+		episodeDetail && setStreamURL();
 	}, [episodeDetail]);
+
+	const [showFullSynopsis, setShowFullSynopsis] = useState(false);
 
 	return (
 		<div
-			className="min-h-[300px] max-w-[600px] aspect-auto lg:aspect-video"
+			className="lg:min-h-[360px] mb-12 lg:mb-0 max-w-full lg:max-w-[55dvw] aspect-auto lg:aspect-video"
 			name="watch"
 		>
 			<h1 className="text-xl font-semibold text-slate-200 mb-4">{title}</h1>
-			{episodeURL?.Referer ? (
+			{episodeURL ? (
 				<iframe
 					allowFullScreen={true}
 					width="100%"
 					height="100%"
-					scrolling="no"
-					src={`${episodeURL.Referer}`}
+					src={episodeURL}
 				></iframe>
 			) : (
 				<div
 					className="h-[80%] lg:h-full lg:w-full bg-slate-500 rounded-lg
 				 text-slate-200 grid place-items-center"
 				>
-					<h2>Sorry, episode has not been released yet</h2>
+					<h2>Sorry, episode is not available.</h2>
 				</div>
 			)}
 			<div className="text-slate-200 mt-4 overflow-auto h-[35vh] leading-relaxed lg:block hidden">
 				<h2 className="text-xl font-medium">Synopsis:</h2>
-				<p className="font-light">{synopsis}</p>
+				<p
+					className={`text-sm font-light ${
+						showFullSynopsis ? "" : "line-clamp-3"
+					}`}
+				>
+					{synopsis}
+				</p>
+				{synopsis && synopsis.length > 0 && (
+					<button
+						className="text-sm text-slate-200 mt-1 hover:underline focus:outline-none"
+						onClick={() => setShowFullSynopsis((prev) => !prev)}
+					>
+						{showFullSynopsis ? "Show less" : "Read more"}
+					</button>
+				)}
 			</div>
 		</div>
 	);

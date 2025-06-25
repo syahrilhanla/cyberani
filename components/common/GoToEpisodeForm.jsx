@@ -19,24 +19,34 @@ const GoToEpisodeForm = ({ animeData }) => {
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
-				<span className="grid grid-cols-[6fr_3fr] gap-1 py-1">
+				<span className="flex justify-between">
 					<input
-						type="number"
-						className="w-full h-12 bg-transparent placeholder-shown:font-light  
+						className="w-full bg-transparent placeholder-shown:font-light  
           placeholder-gray-400 focus:outline-none"
 						placeholder="Go to episode..."
-						onChange={(e) => setEpisodeInput(e.target.value)}
+						value={episodeInput || ""}
+						onChange={(e) => {
+							// only accept numbers
+							const value = e.target.value;
+							if (/^\d*$/.test(value)) {
+								setEpisodeInput(value ? parseInt(value, 10) : null);
+							}
+						}}
 					/>
 					<input
 						type="submit"
 						value="Go"
-						className="bg-[#183868] rounded-md cursor-pointer"
+						className="bg-[#183868] w-12 px-2 py-1 rounded-full text-sm cursor-pointer"
 					/>
 				</span>
 			</form>
-			{errorMessage && (
-				<p className="text-red-600 text-xs font-light">{errorMessage}</p>
-			)}
+			<p
+				className={`${
+					errorMessage ? "opacity-100" : "opacity-0"
+				} text-red-600 text-xs md:text-sm font-light duration-100`}
+			>
+				Episode not found
+			</p>
 		</>
 	);
 };
