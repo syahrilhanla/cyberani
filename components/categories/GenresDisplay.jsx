@@ -1,7 +1,16 @@
-import GenreCard from "../common/GenreCard";
-import genresData from "./genresData";
+import Link from "next/link";
 
-const GenresDisplay = () => {
+const GenresDisplay = ({ genres }) => {
+	const colors = [
+		"text-blue-500/90",
+		"text-green-500/90",
+		"text-purple-500/90",
+		"text-red-500/90",
+		"text-yellow-500/90",
+		"text-pink-500/90",
+		"text-teal-500/90",
+	];
+
 	return (
 		<div className="w-full p-3 my-6 flex flex-col justify-center items-center">
 			<div className="lg:w-[70%] ml-3 mb-4">
@@ -10,12 +19,20 @@ const GenresDisplay = () => {
 				</h1>
 			</div>
 			<div
-				className="lg:w-[70%] grid grid-cols-2 lg:grid-cols-3 lg:grid-cols-5
-     mt-2 text-left font-medium text-slate-100 pb-2"
+				className="lg:w-[70%] grid grid-cols-2 px-2 lg:grid-cols-3 xl:grid-cols-5 gap-y-2 gap-x-4
+	 mt-2 text-left font-medium text-slate-100"
 			>
-				{genresData.map((genre) => (
-					<GenreCard genre={genre} key={genre} />
-				))}
+				{genres &&
+					genres.map((genre, index) => (
+						<p
+							key={genre}
+							className={`${
+								colors[index % colors.length]
+							} w-fit hover:underline cursor-pointer`}
+						>
+							<Link href={`/genre/${genre}`}>{genre}</Link>
+						</p>
+					))}
 			</div>
 		</div>
 	);
