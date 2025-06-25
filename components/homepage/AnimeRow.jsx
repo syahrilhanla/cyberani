@@ -51,7 +51,10 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 				) : (
 					<Swiper
 						modules={[Navigation]}
-						navigation
+						navigation={{
+							nextEl: ".swiper-button-next",
+							prevEl: ".swiper-button-prev",
+						}}
 						slidesPerView={
 							width < 640
 								? 2
@@ -74,6 +77,14 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 								<AnimeCardShowroom data={anime} />
 							</SwiperSlide>
 						))}
+						<div
+							className="swiper-button-next opacity-25 hover:opacity-70 duration-200"
+							style={{ color: "#c5c5c5" }}
+						></div>
+						<div
+							className="swiper-button-prev opacity-25 hover:opacity-70 duration-200"
+							style={{ color: "#c5c5c5" }}
+						></div>
 					</Swiper>
 				)}
 			</div>

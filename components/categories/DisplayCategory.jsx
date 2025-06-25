@@ -20,7 +20,6 @@ const DisplayCategory = ({ categoryName, category, animeType }) => {
 	// fetch data when initializing component
 	useEffect(() => {
 		fetchData();
-		console.log("Fetching data for category:", category, "Page:", currentPage);
 	}, [currentPage]);
 
 	return (
