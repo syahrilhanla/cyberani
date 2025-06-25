@@ -9,6 +9,7 @@ const GenreDetails = ({ genre }) => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [animeData, setAnimeData] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const [totalPages, setTotalPages] = useState(0);
 
 	const capitalizedWord = (word) => {
 		const firstLetter = word.split("")[0].toUpperCase();
@@ -19,8 +20,10 @@ const GenreDetails = ({ genre }) => {
 
 	const fetchData = async () => {
 		setLoading(true);
-		const { results } = await fetchAnimeGenre(genre, currentPage);
+		const { results, totalPages } = await fetchAnimeGenre(genre, currentPage);
 		setAnimeData(results);
+
+		setTotalPages(totalPages);
 		setLoading(false);
 	};
 	// fetch data when initializing component
@@ -58,7 +61,11 @@ const GenreDetails = ({ genre }) => {
 					</>
 				)}
 
-				<Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+				<Pagination
+					currentPage={currentPage}
+					setCurrentPage={setCurrentPage}
+					totalPages={totalPages}
+				/>
 			</div>
 		</>
 	);
