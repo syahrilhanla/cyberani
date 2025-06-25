@@ -19,7 +19,7 @@ const Episodes = ({ animeData, currentEpisode }) => {
 				rounded-lg text-white font-semibold"
 				onClick={() => dispatch(prevEpisode())}
 			>
-				<TbPlayerTrackPrevFilled />
+				<TbPlayerTrackPrevFilled className="mt-0.5" />
 				Prev
 			</button>
 			<button
@@ -27,7 +27,7 @@ const Episodes = ({ animeData, currentEpisode }) => {
 				onClick={() => dispatch(nextEpisode())}
 			>
 				Next
-				<TbPlayerTrackNextFilled />
+				<TbPlayerTrackNextFilled className="mt-0.5" />
 			</button>
 		</div>
 	);
@@ -55,7 +55,7 @@ const Episodes = ({ animeData, currentEpisode }) => {
 							>
 								<span className="text-base">Episode {episode.number}</span>
 								{currentEpisode === episode.number && (
-									<FaPlay className="text-blue-400 group-hover:text-pink-400 transition" />
+									<FaPlay className="text-blue-400 group-hover:text-blue-600 transition duration-200" />
 								)}
 							</button>
 						))}
