@@ -31,7 +31,7 @@ const AnimeCardShowroom = ({ data }) => {
 					<h3
 						className="text-slate-100 hover:text-white font-semibold 
 						text-lg text-center truncate w-full drop-shadow-lg 
-						whitespace-normal text-ellipsis max-w-full"
+						whitespace-normal text-ellipsis max-w-full px-3"
 					>
 						{data.title}
 					</h3>

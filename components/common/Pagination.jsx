@@ -1,8 +1,10 @@
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import {
+	MdKeyboardDoubleArrowRight,
+	MdKeyboardDoubleArrowLeft,
+} from "react-icons/md";
 
-const Pagination = ({ topPage, currentPage, setCurrentPage, totalPages }) => {
-	console.log({ topPage, currentPage, totalPages });
-
+const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
 	const handlePrev = () => {
 		if (currentPage > 1) {
 			setCurrentPage((prevState) => prevState - 1);
@@ -10,7 +12,7 @@ const Pagination = ({ topPage, currentPage, setCurrentPage, totalPages }) => {
 	};
 
 	const handleNext = () => {
-		if (currentPage < topPage) {
+		if (currentPage < totalPages) {
 			setCurrentPage((prevState) => prevState + 1);
 		}
 	};
@@ -35,43 +37,50 @@ const Pagination = ({ topPage, currentPage, setCurrentPage, totalPages }) => {
 		// Add ellipsis for skipped pages
 		if (startPage > 1) {
 			pages.unshift("...");
-			pages.unshift("First");
+			pages.unshift(<MdKeyboardDoubleArrowLeft size={24} />);
 		}
 		if (endPage < totalPages) {
 			pages.push("...");
-			pages.push("Last");
+			pages.push(<MdKeyboardDoubleArrowRight size={24} />);
 		}
 
 		return pages;
 	};
 
 	return (
-		<div className="flex items-center justify-center gap-2 bg-[#1a2235] text-slate-200 py-4 rounded-lg shadow-md">
+		<div className="flex items-center justify-center gap-2 text-slate-200">
 			{/* Previous Button */}
 			<button
-				className={`px-3 py-2 rounded-md font-medium transition-all duration-300 shadow-sm flex items-center gap-1 ${
+				className={`px-3 py-3 rounded-full font-normal text-sm transition-all duration-300 shadow-sm flex items-center gap-1 ${
 					currentPage > 1
-						? "bg-blue-500 text-white hover:bg-blue-600"
-						: "bg-gray-500 text-gray-300 cursor-not-allowed"
+						? "bg-[#1e3a8a]/70 text-white hover:bg-[#2563eb]/60" // Platform theme colors
+						: "bg-[#374151] text-gray-300 cursor-not-allowed"
 				}`}
 				onClick={handlePrev}
 				disabled={currentPage <= 1}
 			>
 				<FaChevronLeft />
-				<span>Prev</span>
 			</button>
 
 			{/* Page Numbers */}
 			<div className="flex gap-2">
-				{generatePageNumbers().map((page) => (
+				{generatePageNumbers().map((page, index) => (
 					<button
-						key={page}
-						className={`px-3 py-2 rounded-md font-medium transition-all duration-300 ${
+						key={index}
+						className={`h-10 w-10 rounded-full font-normal flex items-center justify-center text-sm transition-all duration-300 ${
 							page === currentPage
-								? "bg-blue-700 text-white"
-								: "bg-gray-700 text-gray-300 hover:bg-blue-500 hover:text-white"
+								? "bg-[#1e40af]/70 text-white" // Active page color
+								: page !== "..."
+								? "bg-[#1f2937] text-gray-300 hover:bg-[#2563eb]/40 hover:text-white" // Hover effect
+								: "bg-[#374151] text-gray-300 cursor-not-allowed"
 						}`}
-						onClick={() => handlePageClick(page)}
+						onClick={() => {
+							if (page === "First") return handlePageClick(1);
+							if (page === "Last") return handlePageClick(totalPages);
+
+							if (typeof page === "number") return handlePageClick(page);
+						}}
+						disabled={page === "..."}
 					>
 						{page}
 					</button>
@@ -80,15 +89,14 @@ const Pagination = ({ topPage, currentPage, setCurrentPage, totalPages }) => {
 
 			{/* Next Button */}
 			<button
-				className={`px-3 py-2 rounded-md font-medium transition-all duration-300 shadow-sm flex items-center gap-1 ${
-					currentPage < topPage
-						? "bg-blue-500 text-white hover:bg-blue-600"
-						: "bg-gray-500 text-gray-300 cursor-not-allowed"
+				className={`px-3 py-3 rounded-full font-normal text-sm transition-all duration-300 shadow-sm flex items-center gap-1 ${
+					currentPage < totalPages
+						? "bg-[#1e3a8a]/70 text-white hover:bg-[#2563eb]/60" // Platform theme colors
+						: "bg-[#374151] text-gray-300 cursor-not-allowed"
 				}`}
 				onClick={handleNext}
-				disabled={currentPage >= topPage}
+				disabled={currentPage >= totalPages}
 			>
-				<span>Next</span>
 				<FaChevronRight />
 			</button>
 		</div>
