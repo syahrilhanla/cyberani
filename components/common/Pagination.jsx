@@ -37,11 +37,11 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
 		// Add ellipsis for skipped pages
 		if (startPage > 1) {
 			pages.unshift("...");
-			pages.unshift(<MdKeyboardDoubleArrowLeft size={24} />);
+			pages.unshift(<MdKeyboardDoubleArrowLeft title="First" size={24} />);
 		}
 		if (endPage < totalPages) {
 			pages.push("...");
-			pages.push(<MdKeyboardDoubleArrowRight size={24} />);
+			pages.push(<MdKeyboardDoubleArrowRight title="Last" size={24} />);
 		}
 
 		return pages;
@@ -56,6 +56,7 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
 						? "bg-[#1e3a8a]/70 text-white hover:bg-[#2563eb]/60" // Platform theme colors
 						: "bg-[#374151] text-gray-300 cursor-not-allowed"
 				}`}
+				title="Previous Page"
 				onClick={handlePrev}
 				disabled={currentPage <= 1}
 			>
@@ -75,8 +76,9 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
 								: "bg-[#374151] text-gray-300 cursor-not-allowed"
 						}`}
 						onClick={() => {
-							if (page === "First") return handlePageClick(1);
-							if (page === "Last") return handlePageClick(totalPages);
+							if (page.props?.title === "First") return handlePageClick(1);
+							if (page.props?.title === "Last")
+								return handlePageClick(totalPages);
 
 							if (typeof page === "number") return handlePageClick(page);
 						}}
@@ -94,6 +96,7 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
 						? "bg-[#1e3a8a]/70 text-white hover:bg-[#2563eb]/60" // Platform theme colors
 						: "bg-[#374151] text-gray-300 cursor-not-allowed"
 				}`}
+				title="Next Page"
 				onClick={handleNext}
 				disabled={currentPage >= totalPages}
 			>
