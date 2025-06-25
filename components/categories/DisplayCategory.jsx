@@ -9,11 +9,13 @@ const DisplayCategory = ({ categoryName, category, animeType }) => {
 	const [animeData, setAnimeData] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [loading, setLoading] = useState(true);
+	const [totalPages, setTotalPages] = useState(0);
 
 	const fetchData = async () => {
 		setLoading(true);
-		const { results } = await fetchAnimeList(category, currentPage);
+		const { results, totalPages } = await fetchAnimeList(category, currentPage);
 		setAnimeData(results);
+		setTotalPages(totalPages);
 		setLoading(false);
 	};
 
@@ -31,7 +33,7 @@ const DisplayCategory = ({ categoryName, category, animeType }) => {
 			</div>
 			<div
 				className="lg:w-[70%] grid grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-5
-     mt-2 text-left font-medium text-slate-100 pb-2"
+     mt-2 mb-4 text-left font-medium text-slate-100 pb-2"
 			>
 				{loading ? (
 					<div className="flex justify-center items-center h-[60dvh] col-span-5">
@@ -54,7 +56,13 @@ const DisplayCategory = ({ categoryName, category, animeType }) => {
 					</>
 				)}
 			</div>
-			<Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+			{loading ? null : (
+				<Pagination
+					totalPages={totalPages}
+					currentPage={currentPage}
+					setCurrentPage={setCurrentPage}
+				/>
+			)}
 		</div>
 	);
 };

@@ -58,14 +58,14 @@ const GenreDetails = ({ genre }) => {
 									<AnimeCardShowroom data={data} key={data.animeTitle} />
 								))}
 						</div>
+
+						<Pagination
+							currentPage={currentPage}
+							setCurrentPage={setCurrentPage}
+							totalPages={totalPages}
+						/>
 					</>
 				)}
-
-				<Pagination
-					currentPage={currentPage}
-					setCurrentPage={setCurrentPage}
-					totalPages={totalPages}
-				/>
 			</div>
 		</>
 	);
