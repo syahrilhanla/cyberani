@@ -1,4 +1,11 @@
-const AnimeCardSkeleton = ({ slidesPerView }) => {
+import useWindowDimensions from "../utils/useWindowDimensions";
+
+const AnimeCardSkeleton = () => {
+	const { width } = useWindowDimensions();
+
+	const slidesPerView =
+		width < 640 ? 2 : width < 768 ? 3 : width < 1024 ? 3 : width < 1280 ? 5 : 5;
+
 	return [...Array(slidesPerView)].map((_, index) => (
 		<div
 			key={index}
