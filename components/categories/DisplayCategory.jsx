@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+
 import AnimeCardEpisode from "../common/AnimeCardEpisode";
 import AnimeCardShowroom from "../common/AnimeCardShowroom";
 import Pagination from "../common/Pagination";
+import AnimeCardSkeleton from "../common/AnimeCardSkeleton";
+
 import { fetchAnimeList } from "../utils/fetchAnime";
-import { BiLoaderAlt } from "react-icons/bi";
 
 const DisplayCategory = ({ categoryName, category, animeType }) => {
 	const [animeData, setAnimeData] = useState([]);
@@ -36,9 +38,14 @@ const DisplayCategory = ({ categoryName, category, animeType }) => {
      mt-2 mb-4 text-left font-medium text-slate-100 pb-2"
 			>
 				{loading ? (
-					<div className="flex justify-center items-center h-[60dvh] col-span-5">
-						<BiLoaderAlt size={64} color="slate" className="animate-spin" />
-					</div>
+					<>
+						<div className="flex lg:gap-4 gap-2 justify-center items-center h-64 col-span-5">
+							<AnimeCardSkeleton />
+						</div>
+						<div className="flex lg:gap-4 gap-2 justify-center items-center h-64 col-span-5">
+							<AnimeCardSkeleton />
+						</div>
+					</>
 				) : (
 					<>
 						{/* if data results come as series and not as an episode than render AnimeShowroom */}
