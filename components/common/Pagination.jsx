@@ -1,7 +1,8 @@
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import {
 	MdKeyboardDoubleArrowRight,
 	MdKeyboardDoubleArrowLeft,
+	MdKeyboardArrowRight,
+	MdKeyboardArrowLeft,
 } from "react-icons/md";
 
 const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
@@ -37,11 +38,9 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
 		// Add ellipsis for skipped pages
 		if (startPage > 1) {
 			pages.unshift("...");
-			pages.unshift(<MdKeyboardDoubleArrowLeft title="First" size={24} />);
 		}
 		if (endPage < totalPages) {
 			pages.push("...");
-			pages.push(<MdKeyboardDoubleArrowRight title="Last" size={24} />);
 		}
 
 		return pages;
@@ -49,9 +48,23 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
 
 	return (
 		<div className="flex items-center justify-center gap-2 text-slate-200">
+			{currentPage > 1 && (
+				<button
+					className={`h-10 w-10 rounded-full font-normal text-sm transition-all duration-300 shadow-sm flex justify-center items-center gap-1 ${
+						currentPage > 1
+							? "bg-[#1e3a8a]/70 text-white hover:bg-[#2563eb]/60" // Platform theme colors
+							: "bg-[#374151] text-gray-300 cursor-not-allowed"
+					}`}
+					title="First Page"
+					onClick={() => handlePageClick(1)}
+				>
+					<MdKeyboardDoubleArrowLeft size={22} />
+				</button>
+			)}
+
 			{/* Previous Button */}
 			<button
-				className={`px-3 py-3 rounded-full font-normal text-sm transition-all duration-300 shadow-sm flex items-center gap-1 ${
+				className={`h-10 w-10 rounded-full font-normal text-sm transition-all duration-300 shadow-sm flex justify-center items-center gap-1 ${
 					currentPage > 1
 						? "bg-[#1e3a8a]/70 text-white hover:bg-[#2563eb]/60" // Platform theme colors
 						: "bg-[#374151] text-gray-300 cursor-not-allowed"
@@ -60,7 +73,7 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
 				onClick={handlePrev}
 				disabled={currentPage <= 1}
 			>
-				<FaChevronLeft />
+				<MdKeyboardArrowLeft size={22} />
 			</button>
 
 			{/* Page Numbers */}
@@ -76,10 +89,6 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
 								: "bg-[#374151] text-gray-300 cursor-not-allowed"
 						}`}
 						onClick={() => {
-							if (page.props?.title === "First") return handlePageClick(1);
-							if (page.props?.title === "Last")
-								return handlePageClick(totalPages);
-
 							if (typeof page === "number") return handlePageClick(page);
 						}}
 						disabled={page === "..."}
@@ -91,7 +100,7 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
 
 			{/* Next Button */}
 			<button
-				className={`px-3 py-3 rounded-full font-normal text-sm transition-all duration-300 shadow-sm flex items-center gap-1 ${
+				className={`h-10 w-10 rounded-full font-normal text-sm transition-all duration-300 shadow-sm flex justify-center items-center gap-1 ${
 					currentPage < totalPages
 						? "bg-[#1e3a8a]/70 text-white hover:bg-[#2563eb]/60" // Platform theme colors
 						: "bg-[#374151] text-gray-300 cursor-not-allowed"
@@ -100,8 +109,22 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
 				onClick={handleNext}
 				disabled={currentPage >= totalPages}
 			>
-				<FaChevronRight />
+				<MdKeyboardArrowRight size={22} />
 			</button>
+
+			{currentPage < totalPages && (
+				<button
+					className={`h-10 w-10 rounded-full font-normal text-sm transition-all duration-300 shadow-sm flex justify-center items-center gap-1 ${
+						currentPage > 1
+							? "bg-[#1e3a8a]/70 text-white hover:bg-[#2563eb]/60" // Platform theme colors
+							: "bg-[#374151] text-gray-300 cursor-not-allowed"
+					}`}
+					title="Last Page"
+					onClick={() => handlePageClick(totalPages)}
+				>
+					<MdKeyboardDoubleArrowRight size={22} />
+				</button>
+			)}
 		</div>
 	);
 };
