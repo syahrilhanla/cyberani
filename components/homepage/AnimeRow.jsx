@@ -9,13 +9,7 @@ import "swiper/css/navigation";
 import AnimeCardShowroom from "../common/AnimeCardShowroom";
 import { fetchAnimeList } from "../utils/fetchAnime";
 import useWindowDimensions from "../utils/useWindowDimensions";
-
-const AnimeCardSkeleton = () => (
-	<div className="w-full h-full bg-gradient-to-r from-slate-800 to-slate-700 animate-pulse rounded-lg flex flex-col justify-end items-center p-4 gap-2">
-		<div className="h-4 w-full bg-slate-600 rounded-full" />
-		<div className="h-4 w-2/3 bg-slate-600 rounded-full" />
-	</div>
-);
+import AnimeCardSkeleton from "../common/AnimeCardSkeleton";
 
 const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 	const [animeData, setAnimeData] = useState([]);
@@ -52,11 +46,9 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 				</Link>
 			</div>
 			<div className="w-full relative overflow-visible">
-				{1 ? (
+				{loading ? (
 					<div className="flex lg:gap-4 gap-2 justify-center items-center h-64">
-						{[...Array(slidesPerView)].map((_, index) => (
-							<AnimeCardSkeleton key={index} />
-						))}
+						<AnimeCardSkeleton slidesPerView={slidesPerView} />
 					</div>
 				) : (
 					<Swiper
