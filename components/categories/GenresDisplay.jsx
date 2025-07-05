@@ -19,7 +19,7 @@ const GenresDisplay = ({ genres }) => {
 				</h1>
 			</div>
 			<div
-				className="lg:w-[70%] grid grid-cols-2 px-2 lg:grid-cols-3 xl:grid-cols-5 gap-y-2 gap-x-4
+				className="w-full lg:w-[70%] grid grid-cols-2 lg:px-2 px-20 lg:grid-cols-3 xl:grid-cols-5 gap-y-2 gap-x-4
 	 mt-2 text-left font-medium text-slate-100"
 			>
 				{genres &&
@@ -28,7 +28,7 @@ const GenresDisplay = ({ genres }) => {
 							key={genre}
 							className={`${
 								colors[index % colors.length]
-							} w-fit hover:underline cursor-pointer`}
+							} w-fit hover:underline cursor-pointer capitalize`}
 						>
 							<Link href={`/genre/${genre}`}>{genre}</Link>
 						</p>
