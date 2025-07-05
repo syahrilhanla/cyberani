@@ -7,12 +7,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import AnimeCardShowroom from "../common/AnimeCardShowroom";
-import { fetchAnimeList } from "../utils/fetchAnime";
 import AnimeCardSkeleton from "../common/AnimeCardSkeleton";
+
+import { fetchAnimeList } from "../utils/fetchAnime";
+import useWindowDimensions from "../utils/useWindowDimensions";
 
 const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 	const [animeData, setAnimeData] = useState([]);
 	const [loading, setLoading] = useState(true);
+
+	const { width } = useWindowDimensions();
 
 	const fetchData = async () => {
 		try {
@@ -29,6 +33,9 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 	useEffect(() => {
 		fetchData();
 	}, []);
+
+	const slidesPerView =
+		width < 640 ? 2 : width < 768 ? 3 : width < 1024 ? 3 : width < 1280 ? 5 : 5;
 
 	return (
 		<div className="flex flex-col w-[90%] lg:w-[80%] mt-2 text-left font-medium text-slate-200 pb-5 overflow-visible">
