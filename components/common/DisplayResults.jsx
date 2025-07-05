@@ -25,7 +25,7 @@ const DisplayResults = ({ searchResults, searchQuery, loading }) => {
 						</div>
 					) : searchResults.length > 0 ? (
 						searchResults.map((result) => (
-							<Link href={`/anime/${result.animeId}`} key={result.title}>
+							<Link href={`/anime/${result.id}`} key={result.title}>
 								<div
 									className="flex min-w-full gap-3 py-2 cursor-pointer hover:bg-[#0f2647]/30 duration-400"
 									onClick={() => {
