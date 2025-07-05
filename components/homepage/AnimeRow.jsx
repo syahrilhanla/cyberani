@@ -7,16 +7,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import AnimeCardShowroom from "../common/AnimeCardShowroom";
+import AnimeCardSkeleton from "../common/AnimeCardSkeleton";
+
 import { fetchAnimeList } from "../utils/fetchAnime";
 import useWindowDimensions from "../utils/useWindowDimensions";
-
-import { BiLoaderAlt } from "react-icons/bi";
 
 const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 	const [animeData, setAnimeData] = useState([]);
 	const [loading, setLoading] = useState(true);
 
-	const { width, height } = useWindowDimensions();
+	const { width } = useWindowDimensions();
 
 	const fetchData = async () => {
 		try {
@@ -34,6 +34,9 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 		fetchData();
 	}, []);
 
+	const slidesPerView =
+		width < 640 ? 2 : width < 768 ? 3 : width < 1024 ? 3 : width < 1280 ? 5 : 5;
+
 	return (
 		<div className="flex flex-col w-[90%] lg:w-[80%] mt-2 text-left font-medium text-slate-200 pb-5 overflow-visible">
 			<div className="w-fit">
@@ -45,8 +48,8 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 			</div>
 			<div className="w-full relative overflow-visible">
 				{loading ? (
-					<div className="flex justify-center items-center h-64">
-						<BiLoaderAlt size={64} color="slate" className="animate-spin" />
+					<div className="flex lg:gap-4 gap-2 justify-center items-center h-64">
+						<AnimeCardSkeleton />
 					</div>
 				) : (
 					<Swiper
@@ -55,17 +58,7 @@ const AnimeRow = ({ rowTitle, category, animeType, toPage }) => {
 							nextEl: ".swiper-button-next",
 							prevEl: ".swiper-button-prev",
 						}}
-						slidesPerView={
-							width < 640
-								? 2
-								: width < 768
-								? 3
-								: width < 1024
-								? 3
-								: width < 1280
-								? 5
-								: 5
-						}
+						slidesPerView={slidesPerView}
 						spaceBetween={5}
 						className="anime-row-swiper overflow-visible"
 					>
